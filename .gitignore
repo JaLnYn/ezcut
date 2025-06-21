@@ -2,6 +2,8 @@
 videos
 processed_videos
 # outputs
+final_vlog.mp4
+stream_videos
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
