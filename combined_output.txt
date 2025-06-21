@@ -1,0 +1,195 @@
+filename: PXL_20250621_143038312_processed.txt
+--------------------------------------------------
+[keyframe:00:00:00] The video frame appears to capture a cluttered desk setup in a room. Here are the details:
+
+- **Main Subjects and Setting:**
+  - The desk is made of wood and seems to be in a home office or study environment, featuring various objects.
+  
+- **Notable Visual Elements:**
+  - **Electronics:** There are multiple computer monitors on the desk, notably one large screen and possibly a laptop.
+  - **PC Tower:** Below the desk is a computer tower with illuminated components visible through a side panel.
+  - **Bottles:** On the desk are two glass bottles and a carton of orange juice, suggesting recent use or consumption.
+  - **Desk Accessories:** Items such as a mouse, keyboard, and several
+[transcript:00:00:02] We're headed off to where we headed off to.
+[transcript:00:00:05] Woohoo!
+[transcript:00:00:06] Let's go!
+[transcript:00:00:07] Woohoo!
+
+================================================================================
+
+filename: PXL_20250621_144411438_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] I think it's that one over there.
+[keyframe:00:00:00] The video frame shows an urban street scene. The following elements are notable:
+
+1. **Street Surface**: The foreground features a cobblestone or brick-paved area, giving a textured look to the ground.
+
+2. **Building and Entrance**: On the left, there's a large building with a variety of colorful vertical stripes decorating the front windows. A red banner saying "THE GUITAR SHOW" is visible hanging on the building.
+
+3. **Sidewalk and Plants**: A sidewalk runs alongside the building with some greenery, including bushes in planters. A white railing separates the pedestrian area from the street.
+
+4. **Roadway**: A narrow road separates the cobblestone area from the building. It's free of traffic but
+[transcript:00:00:03] Walk, bitch!
+[transcript:00:00:08] Whoa!
+[transcript:00:00:10] Oh yeah, that's a better angle.
+[transcript:00:00:13] You walk and beat the way.
+
+================================================================================
+
+filename: PXL_20250621_144505690.TS_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] في نفسب
+[transcript:00:00:00] في نفسب
+[keyframe:00:00:00] The image is taken from inside a vehicle, focusing on a person in the driver's seat. The person is wearing a dark blue long-sleeve shirt and blue jeans, with their hands on the steering wheel, suggesting they are driving. The interior of the vehicle features black seats, and the dashboard, partially visible, includes typical car controls and displays. The angle appears slightly tilted, providing a dynamic perspective. Through the windshield, blurred elements of the outside world can be seen, indicating motion or a focus on the interior subject. The overall color palette is subdued, with dark tones dominating the scene.
+[transcript:00:00:02] في نفسب
+[transcript:00:00:02] في نفسب
+
+================================================================================
+
+filename: PXL_20250621_144903599_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] how much i must help
+[keyframe:00:00:00] This video frame captures the interior of a vehicle from the back seat, facing towards the front. In the foreground, the backs of the front seats are visible, with a partial view of the driver's side and passenger's side. Between the seats, the dashboard includes a screen displaying navigation or vehicle information.
+
+Visible through the windshield is an urban setting, featuring a busy street with a variety of vehicles ahead, including a white delivery truck with blue and red elements. Surrounding buildings are partially visible, suggesting a city environment.
+
+There's a rearview mirror attached to the windshield, with a dashcam positioned nearby. The interior elements, such as the design of the seats and the dashboard, suggest a modern vehicle. Notable elements include a red drink cup placed in
+
+================================================================================
+
+filename: PXL_20250621_150841811.TS_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] So people sailing out there
+[keyframe:00:00:00] The video frame shows a waterside industrial setting. There are large structures, possibly part of a port or factory, with metal frameworks and equipment. The buildings have angular roofs and appear to be part of a larger complex. In the background, there's a body of water with several small boats visible. The sky is overcast or in early morning/late evening light, adding a muted tone to the image. The angle suggests the photo might be taken from a higher vantage point, possibly through a window, as reflections are visible.
+
+================================================================================
+
+filename: PXL_20250621_150859341.TS_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] Right the venue.
+[keyframe:00:00:00] The frame depicts an office setting with a focus on a man walking along a hallway. He is dressed casually, wearing a dark jacket, and appears to be holding a yellow object in one hand. The hallway features a tiled floor and a wooden table with several office chairs around it. In the background, there is a glass-walled meeting room with several empty white office chairs. The ceiling has recessed lighting, creating a bright atmosphere. The word "Nothing" is visible on the glass wall, suggesting a company logo or office name. The overall environment is modern and professional.
+[transcript:00:00:03] Say hello.
+
+================================================================================
+
+filename: PXL_20250621_151000011_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] Sorry,bye for the content of this video.
+[keyframe:00:00:00] The image shows a group of people gathered in a modern office hallway. The setting features glass walls on one side and a carpeted floor. 
+
+- **People and Actions**: There are several individuals present. One person in the foreground is turned away from the camera, wearing a white shirt and a backpack, holding a green bottle. Another person, wearing a white outfit, stands in the center facing the camera with arms crossed. A third person in a hoodie is facing the glass wall, observing what's inside. There is a person in formal attire, possibly a suit, holding a bottle and engaging with another person.
+
+- **Setting**: The office environment includes translucent glass walls and visible doorways. Beyond the glass, a large screen displays vibrant colors
+
+================================================================================
+
+filename: PXL_20250621_161739145_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] I'm going to see you guys in the next video.
+[keyframe:00:00:00] The video frame depicts a group of people gathered indoors, likely in a modern office or communal space. The setting features a black marble countertop with fixtures like a paper towel holder, a soap dispenser, and a wire basket containing small items. 
+
+In the background, several individuals are standing and engaged in conversation. One person, facing left, is possibly addressing the group. Near the window, there’s more light, adding contrast to the scene. The window has signage and images, hinting at an office environment.
+
+The overall mood is casual, with people wearing everyday attire, and the lighting is bright, giving the space a clean, professional look.
+[transcript:00:00:02] I'm going to see you guys in the next video.
+[transcript:00:00:05] I'm going to see you guys in the next video.
+
+================================================================================
+
+filename: PXL_20250621_161827914_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] He goes into his face.
+[keyframe:00:00:00] The video frame shows a group of people in a modern indoor setting, likely a conference or meeting room. There's a large window in the background, letting in natural light and providing a view of what appears to be water or a distant landscape. 
+
+The main subjects include a person standing near the center, possibly speaking or preparing to speak, as there is a microphone stand nearby. This person is dressed casually in a T-shirt with a colorful design and has an ID badge around their neck. Their demeanor suggests they are engaged in an event, like a presentation or discussion.
+
+There are other individuals partly visible, dressed in business or casual attire, suggesting a professional setting. A notable piece of furniture is a modern, blue curved chair near the foreground. The room
+[transcript:00:00:01] That's what he's going to be like.
+[transcript:00:00:02] That's what he's going to be like.
+[transcript:00:00:05] Good?
+[transcript:00:00:06] Okay, go.
+[transcript:00:00:07] We were just sick.
+[transcript:00:00:14] There's gonna be a lot of people going in there.
+[transcript:00:00:15] There's just...
+[transcript:00:00:16] There's no space in the box.
+[transcript:00:00:18] Yes, here.
+[transcript:00:00:18] Oh, it's close.
+[transcript:00:00:19] Oh, that's a good one.
+[transcript:00:00:27] I think you're like, how?
+[keyframe:00:00:29] In this video frame, several people are present in what appears to be an indoor setting, possibly an event or a conference. The person in the foreground is wearing a blue turban, glasses, and a light-colored shirt with a lanyard around their neck. They have a long beard. The background shows several other people who are standing and appear to be engaged in conversation. The floor appears to be made of large stone or concrete tiles, and the environment looks modern with bright lighting. There are chairs and tables in the background, contributing to a casual or professional atmosphere.
+[transcript:00:00:36] So we're going to take off now.
+[transcript:00:00:38] Where's the stool?
+[transcript:00:00:40] Sorry.
+[transcript:00:00:41] Fine, I'll do the stool.
+[transcript:00:00:43] Okay, so we're going to take off now.
+[transcript:00:00:46] I'm sure you guys already like see me walking around and running around all frantically.
+[transcript:00:00:49] But if you guys don't already know me, my name's Jonathan.
+[transcript:00:00:52] I want to be your host for today.
+[transcript:00:00:54] And I just want to thank all of you for being here,
+[transcript:00:00:56] because this is our first ever happy eye.
+[transcript:00:00:59] So give yourself a round of applause.
+[keyframe:00:00:59] The video frame shows a man standing on a stool and gesturing energetically with both hands. He is positioned in a modern indoor space featuring a concrete floor and minimalistic design. The man appears to be dressed formally, possibly wearing a suit. In front of him, there is a globe on a stand. Nearby, a few people are observing the scene; one person is dressed casually and is holding a drink. The room includes ceiling light fixtures and a fire exit sign, with a large window revealing a daylight view and some indoor greenery. The overall atmosphere suggests an informal gathering or presentation.
+[transcript:00:01:06] You guys are all a bunch of brilliant engineers.
+[transcript:00:01:09] And I just know that all the projects you work on today could lead something truly amazing.
+[transcript:00:01:16] Hey, why are you not going to be that way?
+[transcript:00:01:20] Seriously, you guys, whether this is your first,
+[transcript:00:01:23] or it's your 10th, no matter what,
+[transcript:00:01:25] you're going to be learning and coding and practicing whatever it is that's going to help you shape the next project you're going to do.
+[keyframe:00:01:29] The video frame shows a person standing on a stool, positioned next to a large ornamental gong set on a black stand. The individual is holding a mallet, possibly preparing to strike the gong. They are dressed in formal or semi-formal attire, which includes a blazer and a hat. The setting appears to be a modern office or conference space with a minimalist design, featuring large windows, a light gray floor, and white walls. In the background, a person is sitting on a couch, engaged with a laptop or electronic device. There's also a green plant visible, contributing to the interior decor. A safety exit sign is seen on the wall, indicating an emergency exit route. The overall atmosphere is professional and corporate.
+[transcript:00:01:32] So have fun with it, but just know you can be changing people's lives and be patient with it.
+[transcript:00:01:37] Now, just...
+[transcript:00:01:38] I can't do this whole school thing.
+[transcript:00:01:40] I'm like, I want to be looking down at all of you.
+[transcript:00:01:44] If you guys don't already know the two sponsor of the event,
+[transcript:00:01:48] we got Stan and Cortex.
+[transcript:00:01:51] To give you a little refresher, Stan is an all-in-one,
+[transcript:00:01:54] a digital storefront for anyone who wants to make a living program sales.
+[transcript:00:01:57] So think Linktree, but better,
+[transcript:00:01:59] actually sell digital products.
+[keyframe:00:01:59] The video frame depicts a man standing indoors in an office or conference room setting. He is wearing a black hat and a dark suit, and is holding a piece of paper in his hand, suggesting he might be giving a presentation or speech. In front of him is a large globe mounted on a stand, which could be part of his presentation or an ornamental piece. The room has a modern design with a large window in the background, allowing natural light to illuminate the space. There is a couch and a table with chairs, adding to the professional atmosphere. Notably, there is a green exit sign on the wall, and the floor is made of large, smooth tiles.
+[transcript:00:02:02] And then we got Cortex, which is your all-in-one AI-powered knowledge base,
+[transcript:00:02:06] where you can capture, connect, and create all your ideas in one place.
+[transcript:00:02:11] Now, I'm sure you already saw it, and it's probably like a big reason why you guys are all here.
+[transcript:00:02:16] But what's on the line?
+[transcript:00:02:19] It's a money.
+[transcript:00:02:21] It's a big money.
+[transcript:00:02:22] So first place winner is going to get $10,000.
+[transcript:00:02:28] Second place, $5,000.
+[keyframe:00:02:29] The video frame shows a person wearing a dark suit and hat, standing near a gong mounted on a stand. The person is holding a mallet in one hand and appears to be speaking or making a presentation. The setting is an indoor space with a modern design, featuring a light-colored ceiling with exposed beams and a polished floor. In the background, there are a few people sitting on stools and a small couch, with a plant placed near the seating area. The space has a minimalist aesthetic with large windows providing natural light. There's an emergency exit sign visible on the wall.
+[transcript:00:02:31] But not only that, you all are going to get the opportunity to interview at either Stan or Cortex.
+[transcript:00:02:38] So yes, money, money, money.
+[transcript:00:02:41] But thank you to the folks who have us like,
+[transcript:00:02:44] an audition for the future.
+[transcript:00:02:46] Now, housekeeping things.
+[transcript:00:02:48] I've been getting a ton of questions like,
+[transcript:00:02:50] where's the washroom, where can I get to drink, what can I get to eat?
+
+================================================================================
+
+filename: PXL_20250621_164754152.TS_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] Was erinn particulier in den Furen?
+[keyframe:00:00:00] The video frame shows two slices of pizza placed on a small, round table. The pizza is on a brown paper napkin. One slice has toppings of leafy greens and bacon or similar meat pieces, with a melted cheese layer. The other slice appears to be a classic cheese pizza with a hint of tomato sauce at the crust. 
+
+The table is white and has a glossy surface, surrounded by what might be part of a couch or a soft furnishing, visible on the left side. A pen and a name badge or card with a blue and red design are also on the table. The setting seems informal, possibly indicating a casual gathering or break area. The lighting is soft, producing gentle shadows.
+[transcript:00:00:03] Ja ja ja ja ja
+
+================================================================================
+
+filename: PXL_20250621_165118970_processed.txt
+--------------------------------------------------
+[transcript:00:00:00] there is no radio~~
+[keyframe:00:00:00] In the video frame, a man is seated at a table, eating pizza. He is wearing a black shirt and a lanyard with "HackAI Toronto" written on it, suggesting a tech event or hackathon setting. The man is holding a slice of pizza close to his mouth, taking a bite. A laptop is open on the table in front of him, likely indicating he is multitasking or participating in an event. 
+
+On the table, there is also another slice of pizza on a napkin. The background shows a modern, well-lit interior with another person blurred in the back, suggesting a casual or informal gathering space. The overall atmosphere is focused yet relaxed, typical of collaborative tech environments.
+[transcript:00:00:03] Virginia
+[transcript:00:00:03] נה
+[transcript:00:00:03] 
+[transcript:00:00:03] 
+[transcript:00:00:14] 게스트
+[transcript:00:00:17] push
+[transcript:00:00:20] size
+[transcript:00:00:23] 매운
+
+================================================================================
+

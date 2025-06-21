@@ -1,5 +1,7 @@
 # Custom stuff
 videos
+cut_videos
+*.mp4
 processed_videos
 # outputs
 final_vlog.mp4

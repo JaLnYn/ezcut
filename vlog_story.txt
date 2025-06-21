@@ -1,0 +1,75 @@
+Vlog Script for HackAI Toronto Event
+Filename: PXL_20250621_143038312_processed.txt
+Summary: Getting ready/setup at home office before heading to the event
+Transcript start time: 00:00:02
+Transcript end time: 00:00:07
+Voiceover: "We're headed off to where we headed off to. Woohoo! Let's go! Woohoo!"
+
+Filename: PXL_20250621_144411438_processed.txt
+Summary: Arriving at the venue - street scene with "THE GUITAR SHOW" banner visible
+Transcript start time: 00:00:00
+Transcript end time: 00:00:13
+Voiceover: "I think it's that one over there. Walk, bitch! Whoa! Oh yeah, that's a better angle. You walk and beat the way."
+
+Filename: PXL_20250621_144505690.TS_processed.txt
+Summary: In the car/driving to venue
+Transcript start time: 00:00:00
+Transcript end time: 00:00:02
+Voiceover: "في نفسب في نفسب في نفسب في نفسب" (Arabic audio)
+[New script] - Consider recording English voiceover: "On our way to the hackathon venue"
+
+Filename: PXL_20250621_144903599_processed.txt
+Summary: Inside vehicle approaching the venue, urban setting visible
+Transcript start time: 00:00:00
+Voiceover: "how much i must help"
+[New script] - Suggest clearer voiceover: "Almost there, excited to see what we can build today"
+
+Filename: PXL_20250621_150841811.TS_processed.txt
+Summary: View of waterside industrial area near venue
+Transcript start time: 00:00:00
+Voiceover: "So people sailing out there"
+
+Filename: PXL_20250621_150859341.TS_processed.txt
+Summary: Entering the venue - modern office hallway with "Nothing" company branding
+Transcript start time: 00:00:00
+Transcript end time: 00:00:03
+Voiceover: "Right the venue. Say hello."
+
+Filename: PXL_20250621_151000011_processed.txt
+Summary: Meeting other participants in the office hallway
+Transcript start time: 00:00:00
+Voiceover: "Sorry,bye for the content of this video."
+[New script] - Suggest: "Here we are! Meeting the other hackers and getting ready to start"
+
+Filename: PXL_20250621_161739145_processed.txt
+Summary: Social time in the office kitchen/break area
+Transcript start time: 00:00:00
+Transcript end time: 00:00:05
+Voiceover: "I'm going to see you guys in the next video. I'm going to see you guys in the next video. I'm going to see you guys in the next video."
+
+Filename: PXL_20250621_161827914_processed.txt
+Summary: Main event - Jonathan hosting the opening ceremony and announcing prizes
+Transcript start time: 00:00:00
+Transcript end time: 00:02:50
+Key moments:
+
+00:00:49: "My name's Jonathan. I want to be your host for today"
+00:00:56: "This is our first ever happy eye [HackAI]"
+00:02:22: "$10,000" first place prize announcement
+00:02:28: "$5,000" second place prize
+
+
+Filename: PXL_20250621_164754152.TS_processed.txt
+Summary: Pizza break time
+Transcript start time: 00:00:00
+Transcript end time: 00:00:03
+Voiceover: "Was erinn particulier in den Furen? Ja ja ja ja ja" (German audio)
+[New script] - Suggest: "Time for some fuel - pizza break!"
+
+Filename: PXL_20250621_165118970_processed.txt
+Summary: Working while eating - multitasking during the hackathon
+Transcript start time: 00:00:00
+Transcript end time: 00:00:23
+Mixed audio including: "there is no radio~~", "Virginia", various other fragments
+[New script] - Suggest: "Coding and eating - the hackathon grind continues. Working on our project while grabbing some food."
+This appears to be a day-long documentation of attending HackAI Toronto, from preparation at home through arrival, opening ceremony, and working sessions with food breaks.
