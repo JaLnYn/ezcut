@@ -1,0 +1,7 @@
+opencv-python
+openai
+openai-whisper
+ffmpeg-python
+Pillow
+python-dotenv
+tqdm 
