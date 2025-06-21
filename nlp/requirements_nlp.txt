@@ -1,0 +1,27 @@
+# NLP Pipeline Dependencies
+# Core dependencies (some may already be in main requirements.txt)
+
+# OpenAI API for LLM integration
+openai>=1.0.0
+
+# Data validation and serialization
+pydantic>=2.0.0
+
+# Date/time utilities
+python-dateutil>=2.8.0
+
+# JSON schema validation
+jsonschema>=4.0.0
+
+# Testing framework
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Optional: Enhanced logging and monitoring
+structlog>=23.0.0
+
+# Optional: Progress bars for long operations
+tqdm>=4.65.0
+
+# Optional: Rich terminal output
+rich>=13.0.0 
