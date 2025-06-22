@@ -13,6 +13,7 @@ import {
   FileVideo,
   Scissors
 } from 'lucide-react';
+import { api } from '../api/client';
 
 interface HistoryItem {
   id: string;
@@ -24,17 +25,53 @@ interface HistoryItem {
   totalDuration: number;
   keyframeCount: number;
   transcriptSegments: number;
+  progress?: number;
 }
 
 const HistoryTab: React.FC = () => {
   const [historyItems, setHistoryItems] = useState<HistoryItem[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterStatus, setFilterStatus] = useState<'all' | 'completed' | 'processing' | 'failed'>('all');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // Mock data for demonstration
+  // Load job history from API
   useEffect(() => {
-    const mockHistory: HistoryItem[] = [
+    loadJobHistory();
+  }, []);
+
+  const loadJobHistory = async () => {
+    try {
+      setLoading(true);
+      const response = await api.listJobs();
+      
+      // Convert API jobs to HistoryItem format
+      const historyItems: HistoryItem[] = response.jobs.map(job => ({
+        id: job.job_id,
+        title: `Processing Job ${job.job_id.slice(0, 8)}`,
+        fileName: 'Multiple Files', // API doesn't provide file names in list
+        processedAt: job.created_at,
+        status: job.status === 'completed' ? 'completed' : 
+                job.status === 'error' ? 'failed' : 'processing',
+        fileSize: 0, // Not available from API
+        totalDuration: 0, // Not available from API
+        keyframeCount: 0, // Not available from API
+        transcriptSegments: 0, // Not available from API
+        progress: job.progress
+      }));
+      
+      setHistoryItems(historyItems);
+    } catch (error) {
+      console.error('Failed to load job history:', error);
+      // Fall back to mock data if API fails
+      setHistoryItems(getMockHistoryData());
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Mock data as fallback
+  const getMockHistoryData = (): HistoryItem[] => {
+    return [
       {
         id: '1',
         title: 'Meeting Recording Q4 2024',
@@ -69,9 +106,7 @@ const HistoryTab: React.FC = () => {
         transcriptSegments: 0
       }
     ];
-    
-    setHistoryItems(mockHistory);
-  }, []);
+  };
 
   const filteredItems = historyItems.filter(item => {
     const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -80,49 +115,58 @@ const HistoryTab: React.FC = () => {
     return matchesSearch && matchesFilter;
   });
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
-
-  const formatFileSize = (bytes: number) => {
+  const formatFileSize = (bytes: number): string => {
     const mb = bytes / (1024 * 1024);
     return `${mb.toFixed(1)} MB`;
   };
 
-  const formatDuration = (seconds: number) => {
+  const formatDuration = (seconds: number): string => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
-    if (hours > 0) {
-      return `${hours}h ${minutes}m`;
-    }
-    return `${minutes}m`;
+    return hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;
   };
 
-  const getStatusColor = (status: string) => {
+  const formatDate = (dateString: string): string => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffTime = Math.abs(now.getTime() - date.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    if (diffDays === 1) return 'yesterday';
+    if (diffDays < 7) return `${diffDays} days ago`;
+    return date.toLocaleDateString();
+  };
+
+  const getStatusColor = (status: string): string => {
     switch (status) {
-      case 'completed': return 'text-green-400 bg-green-500/20';
-      case 'processing': return 'text-blue-400 bg-blue-500/20';
-      case 'failed': return 'text-red-400 bg-red-500/20';
-      default: return 'text-gray-400 bg-gray-500/20';
+      case 'completed': return 'bg-green-900 text-green-300';
+      case 'processing': return 'bg-yellow-900 text-yellow-300';
+      case 'failed': return 'bg-red-900 text-red-300';
+      default: return 'bg-gray-700 text-gray-300';
     }
   };
 
-  const handleDelete = (id: string) => {
-    setHistoryItems(items => items.filter(item => item.id !== id));
+  const handleReprocess = async (item: HistoryItem) => {
+    // TODO: Implement reprocessing functionality
+    console.log('Reprocess item:', item.id);
   };
 
-  const handleReprocess = (item: HistoryItem) => {
-    console.log('Reprocessing:', item.title);
-    // Update status to processing
-    setHistoryItems(items => 
-      items.map(i => i.id === item.id ? { ...i, status: 'processing' as const } : i)
-    );
+  const handleDelete = async (item: HistoryItem) => {
+    try {
+      await api.deleteJob(item.id);
+      await loadJobHistory(); // Reload the list
+    } catch (error) {
+      console.error('Failed to delete job:', error);
+    }
+  };
+
+  const handleClearAll = async () => {
+    try {
+      await api.clearAllJobs();
+      await loadJobHistory(); // Reload the list
+    } catch (error) {
+      console.error('Failed to clear all jobs:', error);
+    }
   };
 
   return (
@@ -141,6 +185,18 @@ const HistoryTab: React.FC = () => {
           </div>
           
           <div className="flex space-x-3">
+            {/* Clear All Button */}
+            {historyItems.length > 0 && (
+              <button
+                onClick={handleClearAll}
+                className="btn-secondary text-sm flex items-center space-x-1"
+                disabled={loading}
+              >
+                <Trash2 className="h-4 w-4" />
+                <span>Clear All</span>
+              </button>
+            )}
+            
             {/* Search */}
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />

@@ -13,6 +13,10 @@ from typing import List, Dict
 import json
 from datetime import datetime
 
+# Load environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
+
 # Add parent directory to path to import video_processor and nlpv2
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -63,18 +67,30 @@ async def upload_videos(
     valid_extensions = {'.mp4', '.avi', '.mov', '.mkv', '.wmv', '.flv', '.webm'}
     
     for file in files:
-        if not any(file.filename.lower().endswith(ext) for ext in valid_extensions):
+        if not file.filename or not any(file.filename.lower().endswith(ext) for ext in valid_extensions):
+            filename = file.filename or "unknown_file"
             raise HTTPException(
                 status_code=400, 
-                detail=f"Invalid file type: {file.filename}. Supported: {', '.join(valid_extensions)}"
+                detail=f"Invalid file type: {filename}. Supported: {', '.join(valid_extensions)}"
             )
     
     # Generate job ID
     job_id = str(uuid.uuid4())
     jobs[job_id] = JobStatus(job_id)
     
-    # Start background processing
-    background_tasks.add_task(process_videos_background, job_id, files)
+    # Read file contents before starting background task
+    # This prevents "read of closed file" errors
+    file_data_list = []
+    for file in files:
+        file_content = await file.read()
+        file_data_list.append({
+            'filename': file.filename,
+            'content': file_content,
+            'content_type': file.content_type
+        })
+    
+    # Start background processing with file data instead of file objects
+    background_tasks.add_task(process_videos_background, job_id, file_data_list)
     
     return {
         "job_id": job_id,
@@ -116,9 +132,12 @@ async def list_jobs():
         ]
     }
 
-async def process_videos_background(job_id: str, files: List[UploadFile]):
+async def process_videos_background(job_id: str, file_data_list: List[dict]):
     """Background task to process uploaded videos."""
     job = jobs[job_id]
+    
+    print(f"🚀 Starting background processing for job {job_id}")
+    print(f"📁 Processing {len(file_data_list)} files: {[f['filename'] for f in file_data_list]}")
     
     try:
         # Create temporary directories
@@ -126,72 +145,119 @@ async def process_videos_background(job_id: str, files: List[UploadFile]):
         processed_dir = os.path.join(temp_dir, "processed")
         os.makedirs(processed_dir, exist_ok=True)
         
+        print(f"📂 Created temp directories: {temp_dir}")
+        
         job.status = "uploading"
         job.message = "Saving uploaded files..."
         job.progress = 10
+        print(f"🔄 Job {job_id}: {job.message} (Progress: {job.progress}%)")
         
-        # Save uploaded files
+        # Save uploaded files from the pre-read data
         video_files = []
-        for i, file in enumerate(files):
-            file_path = os.path.join(temp_dir, file.filename)
-            with open(file_path, "wb") as buffer:
-                shutil.copyfileobj(file.file, buffer)
-            video_files.append(file_path)
+        for i, file_data in enumerate(file_data_list):
+            file_path = os.path.join(temp_dir, file_data['filename'])
             
-            job.progress = 10 + (i + 1) * 20 // len(files)
+            # Write the pre-read content to file
+            with open(file_path, "wb") as buffer:
+                buffer.write(file_data['content'])
+            
+            video_files.append(file_path)
+            job.progress = 10 + (i + 1) * 20 // len(file_data_list)
+            print(f"📥 Saved file: {file_data['filename']} ({len(file_data['content'])} bytes)")
         
         job.status = "processing"
         job.message = "Processing videos with AI..."
         job.progress = 30
+        print(f"🔄 Job {job_id}: {job.message} (Progress: {job.progress}%)")
         
         # Process videos using video_processor
+        print(f"🎬 Initializing VideoProcessor...")
         processor = VideoProcessor()
         
         for i, video_path in enumerate(video_files):
             job.message = f"Processing video {i+1}/{len(video_files)}: {os.path.basename(video_path)}"
             job.progress = 30 + (i + 1) * 40 // len(video_files)
+            print(f"🔄 Job {job_id}: {job.message} (Progress: {job.progress}%)")
             
             output_file = os.path.join(processed_dir, f"{Path(video_path).stem}_processed.txt")
-            processor.process_video(video_path, output_file)
+            print(f"🎥 Processing video: {video_path} -> {output_file}")
+            
+            try:
+                processor.process_video(video_path, output_file)
+                print(f"✅ Successfully processed: {os.path.basename(video_path)}")
+            except Exception as e:
+                print(f"❌ Error processing video {video_path}: {e}")
+                raise e
+        
+        # Check what files were created
+        txt_files = [f for f in os.listdir(processed_dir) if f.endswith('.txt')]
+        print(f"📋 Found {len(txt_files)} txt files:")
+        for txt_file in txt_files:
+            file_path = os.path.join(processed_dir, txt_file)
+            file_size = os.path.getsize(file_path)
+            print(f"  - {txt_file} ({file_size} bytes)")
         
         job.status = "generating_narrative"
         job.message = "Generating narrative from processed content..."
         job.progress = 80
+        print(f"🔄 Job {job_id}: {job.message} (Progress: {job.progress}%)")
         
         # Generate narrative using nlpv2
-        content = read_folder_raw(processed_dir)
-        if content:
-            narrative = generate_narrative(content)
+        print(f"📖 Reading processed content from: {processed_dir}")
+        try:
+            content = read_folder_raw(processed_dir)
+            print(f"📄 Read content length: {len(content) if content else 0} characters")
             
-            # Save narrative
-            output_file = save_narrative(narrative, "api_outputs")
-            
-            job.status = "completed"
-            job.message = "Processing completed successfully!"
-            job.progress = 100
-            job.result = {
-                "narrative": narrative,
-                "output_file": output_file,
-                "processed_files": len([f for f in os.listdir(processed_dir) if f.endswith('.txt')])
-            }
-        else:
-            raise Exception("No content found in processed files")
+            if content:
+                print(f"🤖 Generating narrative with AI...")
+                narrative = generate_narrative(content)
+                print(f"📝 Generated narrative length: {len(narrative)} characters")
+                
+                # Save narrative
+                print(f"💾 Saving narrative to api_outputs...")
+                output_file = save_narrative(narrative, "api_outputs")
+                print(f"💾 Narrative saved to: {output_file}")
+                
+                job.status = "completed"
+                job.message = "Processing completed successfully!"
+                job.progress = 100
+                job.result = {
+                    "narrative": narrative,
+                    "output_file": output_file,
+                    "processed_files": len(txt_files)
+                }
+                print(f"🎉 Job {job_id} completed successfully!")
+                print(f"🎉 Result: narrative={len(narrative)} chars, output_file={output_file}, processed_files={len(txt_files)}")
+            else:
+                error_msg = "No content found in processed files"
+                print(f"❌ {error_msg}")
+                raise Exception(error_msg)
+        except Exception as e:
+            print(f"❌ Error in narrative generation: {e}")
+            raise e
             
     except Exception as e:
+        error_msg = str(e)
         job.status = "error"
-        job.message = f"Error during processing: {str(e)}"
-        job.error = str(e)
-        print(f"Error processing job {job_id}: {e}")
+        job.message = f"Error during processing: {error_msg}"
+        job.error = error_msg
+        print(f"❌ Job {job_id} failed: {error_msg}")
+        print(f"❌ Full error: {e}")
+        import traceback
+        traceback.print_exc()
     
     finally:
         job.completed_at = datetime.now()
+        print(f"🏁 Job {job_id} finished at {job.completed_at} with status: {job.status}")
         
         # Clean up temporary files
         try:
             if 'temp_dir' in locals():
+                print(f"🧹 Cleaning up temp directory: {temp_dir}")
                 shutil.rmtree(temp_dir)
+                print(f"🧹 Temp directory cleaned up successfully")
         except Exception as e:
-            print(f"Error cleaning up temp files: {e}")
+            print(f"⚠️ Error cleaning up temp files: {e}")
 
 @app.delete("/job/{job_id}")
 async def delete_job(job_id: str):

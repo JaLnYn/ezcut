@@ -3,6 +3,7 @@ import { Settings, Video, History, Scissors } from 'lucide-react';
 import CurrentItem from './components/CurrentItem';
 import HistoryTab from './components/HistoryTab';
 import SettingsModal from './components/SettingsModal';
+import ConnectionStatus from './components/ConnectionStatus';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'current' | 'history'>('current');
@@ -24,13 +25,16 @@ function App() {
               </div>
             </div>
             
-            <button
-              onClick={() => setShowSettings(true)}
-              className="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors duration-200"
-              title="Settings"
-            >
-              <Settings className="h-5 w-5 text-gray-300" />
-            </button>
+            <div className="flex items-center space-x-4">
+              <ConnectionStatus />
+              <button
+                onClick={() => setShowSettings(true)}
+                className="p-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors duration-200"
+                title="Settings"
+              >
+                <Settings className="h-5 w-5 text-gray-300" />
+              </button>
+            </div>
           </div>
         </div>
       </header>

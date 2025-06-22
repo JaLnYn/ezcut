@@ -17,6 +17,7 @@ import {
   X,
   Plus
 } from 'lucide-react';
+import { api, pollJobStatus, type JobStatus } from '../api/client';
 
 interface ProcessingStep {
   id: string;
@@ -51,6 +52,7 @@ const CurrentItem: React.FC = () => {
   const [editableNarrative, setEditableNarrative] = useState<string>('');
   const [isEditing, setIsEditing] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [currentJobId, setCurrentJobId] = useState<string | null>(null);
   
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -100,6 +102,7 @@ As they continue their work, each project becomes a stepping stone toward master
     setEditableNarrative('');
     setIsEditing(false);
     setSubmitSuccess(false);
+    setCurrentJobId(null);
   }, [currentVideoUrl]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -134,13 +137,13 @@ As they continue their work, each project becomes a stepping stone toward master
     setCurrentVideoUrl(videoUrl);
   };
 
-  const addProcessingStep = (id: string, name: string, message: string) => {
+  const addProcessingStep = (id: string, name: string, message: string, progress = 0) => {
     const newStep: ProcessingStep = {
       id,
       name,
       status: 'processing',
       message,
-      progress: 0,
+      progress,
       timestamp: new Date().toLocaleTimeString()
     };
     setProcessingSteps(prev => [...prev, newStep]);
@@ -159,48 +162,18 @@ As they continue their work, each project becomes a stepping stone toward master
     ));
   };
 
-  // API Placeholder functions - ready for real implementation
-  const callVideoProcessor = async (files: File[]): Promise<string[]> => {
-    // TODO: Replace with actual API call to video_processor.py
-    // const formData = new FormData();
-    // files.forEach(file => formData.append('videos', file));
-    // const response = await fetch('/api/process-videos', { method: 'POST', body: formData });
-    // return response.json();
-    
-    // Mock implementation
-    return files.map(f => `outputs/${f.name.replace(/\.[^/.]+$/, "")}_processed.txt`);
-  };
-
-  const callNLPProcessor = async (processedFiles: string[]): Promise<string> => {
-    // TODO: Replace with actual API call to nlp/main_nlp.py
-    // const response = await fetch('/api/generate-narrative', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ files: processedFiles, style: 'inspiring' })
-    // });
-    // const result = await response.json();
-    // return result.narrative_script;
-    
-    // Mock implementation
-    const fileNames = processedFiles.map(f => f.split('/').pop()?.replace('_processed.txt', '') || 'video');
-    return generateMockNarrativeScript(fileNames);
-  };
-
-  const submitEditedNarrative = async (narrative: string): Promise<{ success: boolean; message: string }> => {
-    // TODO: Replace with actual API call for further processing
-    // const response = await fetch('/api/submit-narrative', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ narrative })
-    // });
-    // return response.json();
-    
-    // Mock implementation
-    return { success: true, message: 'Narrative script processed successfully! Ready for video generation.' };
-  };
-
-  const simulateProcessing = async () => {
+  // Real API implementation for video processing
+  const processVideosWithAPI = async () => {
     if (uploadedFiles.length === 0) return;
+
+    console.log('🎬 Starting video processing pipeline:', {
+      fileCount: uploadedFiles.length,
+      files: uploadedFiles.map(f => ({
+        name: f.file.name,
+        size: f.file.size,
+        type: f.file.type
+      }))
+    });
 
     setProcessing(true);
     setError(null);
@@ -210,56 +183,200 @@ As they continue their work, each project becomes a stepping stone toward master
       // Mark files as processing
       setUploadedFiles(prev => prev.map(f => ({ ...f, status: 'processing' })));
 
-      // Step 1: Video Processing (video_processor.py equivalent)
-      addProcessingStep('video-processing', 'Video Processing', `Processing ${uploadedFiles.length} video file(s)...`);
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Step 1: Upload videos to API
+      console.log('📤 Step 1: Uploading files to API...');
+      addProcessingStep('upload', 'Uploading Videos', `Uploading ${uploadedFiles.length} video file(s)...`, 10);
       
-      for (let i = 0; i <= 100; i += 10) {
-        updateProcessingStep('video-processing', 'processing', `Extracting audio and keyframes... ${i}%`, i);
-        await new Promise(resolve => setTimeout(resolve, 200));
-      }
-      updateProcessingStep('video-processing', 'completed', `Generated stream_processed data for ${uploadedFiles.length} file(s)`);
-
-      // Call video processor API (placeholder)
-      const processedFiles = await callVideoProcessor(uploadedFiles.map(f => f.file));
-
-      // Step 2: NLP Processing (nlp/main_nlp.py equivalent)
-      addProcessingStep('nlp-processing', 'NLP Processing', 'Generating narrative script from processed data...');
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const uploadResponse = await api.uploadVideos(uploadedFiles.map(f => f.file));
+      setCurrentJobId(uploadResponse.job_id);
       
-      for (let i = 0; i <= 100; i += 15) {
-        updateProcessingStep('nlp-processing', 'processing', `Analyzing content and generating narrative... ${i}%`, i);
-        await new Promise(resolve => setTimeout(resolve, 300));
-      }
-      updateProcessingStep('nlp-processing', 'completed', 'Generated stream_narrative_script.txt');
+      console.log('✅ Upload successful:', uploadResponse);
+      updateProcessingStep('upload', 'completed', `Uploaded ${uploadedFiles.length} file(s) successfully`);
 
-      // Call NLP processor API (placeholder)
-      const narrativeScript = await callNLPProcessor(processedFiles);
+      // Step 2: Poll for job status
+      console.log('🔄 Step 2: Starting job status polling...');
+      await pollJobStatus(
+        uploadResponse.job_id,
+        (status: JobStatus) => {
+          console.log('📊 Status update received:', {
+            jobId: status.job_id,
+            status: status.status,
+            progress: status.progress,
+            message: status.message,
+            hasError: !!status.error,
+            hasResult: !!status.result,
+            timestamp: new Date().toISOString()
+          });
 
-      // Format narrative script with line breaks before timestamps
-      const formattedNarrative = narrativeScript.replace(/\[(\d{2}:\d{2}:\d{2})\]/g, '\n[$1]').trim();
-
-      const mockResult: ProcessingResult = {
-        status: 'completed',
-        message: `Successfully processed ${uploadedFiles.length} video file(s) and generated narrative script`,
-        narrativeScript: formattedNarrative,
-        files: processedFiles
-      };
-
-      setResult(mockResult);
-      setEditableNarrative(formattedNarrative);
+          // Update processing steps based on backend status
+          const stepId = getStepIdFromStatus(status.status);
+          const stepName = getStepNameFromStatus(status.status);
+          
+          // Find existing step or create new one
+          setProcessingSteps(prev => {
+            const existingStep = prev.find(s => s.id === stepId);
+            if (existingStep) {
+              console.log(`🔄 Updating existing step: ${stepId}`, {
+                oldMessage: existingStep.message,
+                newMessage: status.message,
+                oldProgress: existingStep.progress,
+                newProgress: status.progress,
+                oldStatus: existingStep.status,
+                newStatus: status.status === 'completed' ? 'completed' : 'processing'
+              });
+              return prev.map(step => 
+                step.id === stepId 
+                  ? { 
+                      ...step, 
+                      message: status.message, 
+                      progress: status.progress, 
+                      status: status.status === 'completed' ? 'completed' as const : 'processing' as const 
+                    }
+                  : step
+              );
+            } else {
+              console.log(`➕ Creating new step: ${stepId}`, {
+                name: stepName,
+                message: status.message,
+                progress: status.progress,
+                status: status.status
+              });
+              return [...prev, {
+                id: stepId,
+                name: stepName,
+                status: status.status === 'completed' ? 'completed' as const : 'processing' as const,
+                message: status.message,
+                progress: status.progress,
+                timestamp: new Date().toLocaleTimeString()
+              }];
+            }
+          });
+        },
+        (finalStatus: JobStatus) => {
+          console.log('🎉 Processing completed successfully:', finalStatus);
+          
+          // Processing completed
+          updateProcessingStep(getStepIdFromStatus(finalStatus.status), 'completed', finalStatus.message);
+          
+          if (finalStatus.result) {
+            console.log('📝 Setting result with narrative:', {
+              narrativeLength: finalStatus.result.narrative.length,
+              outputFile: finalStatus.result.output_file,
+              processedFiles: finalStatus.result.processed_files
+            });
+            
+            setResult({
+              status: 'completed',
+              message: 'Processing completed successfully!',
+              narrativeScript: finalStatus.result.narrative,
+              files: Array(finalStatus.result.processed_files).fill('processed_file.txt')
+            });
+            setEditableNarrative(finalStatus.result.narrative);
+          } else {
+            console.warn('⚠️ Completed job has no result data');
+            // Even without result data, set a basic completed result
+            setResult({
+              status: 'completed',
+              message: 'Processing completed, but no narrative data available.',
+              narrativeScript: '',
+              files: []
+            });
+          }
       
-      // Mark files as processed
-      setUploadedFiles(prev => prev.map(f => ({ ...f, status: 'processed' })));
+          // Mark files as processed
+          setUploadedFiles(prev => prev.map(f => ({ ...f, status: 'processed' })));
+          setProcessing(false);
+        },
+        (errorMessage: string) => {
+          console.error('❌ Processing failed with error:', {
+            jobId: uploadResponse.job_id,
+            errorMessage,
+            timestamp: new Date().toISOString()
+          });
 
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Processing failed';
+          // Processing failed
+          setError(`Processing failed: ${errorMessage}`);
+          setProcessing(false);
+          setUploadedFiles(prev => prev.map(f => ({ ...f, status: 'error' })));
+          
+          // Update last step as error
+          setProcessingSteps(prev => {
+            const lastStep = prev[prev.length - 1];
+            if (lastStep) {
+              console.log('🔄 Updating last step with error:', {
+                stepId: lastStep.id,
+                oldStatus: lastStep.status,
+                errorMessage
+              });
+              return prev.map(step => 
+                step.id === lastStep.id 
+                  ? { ...step, status: 'error', message: errorMessage }
+                  : step
+              );
+            }
+            console.warn('⚠️ No steps found to update with error');
+            return prev;
+          });
+        }
+      );
+
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Processing failed';
+      console.error('❌ Video processing pipeline failed:', {
+        error,
+        errorMessage,
+        uploadedFiles: uploadedFiles.length,
+        timestamp: new Date().toISOString(),
+        stack: error instanceof Error ? error.stack : undefined
+      });
+
       setError(errorMessage);
+      setProcessing(false);
       setUploadedFiles(prev => prev.map(f => ({ ...f, status: 'error' })));
-      updateProcessingStep(processingSteps[processingSteps.length - 1]?.id || 'error', 'error', errorMessage);
     }
+  };
 
-    setProcessing(false);
+  // Helper functions for mapping backend status to frontend steps
+  const getStepIdFromStatus = (status: string): string => {
+    switch (status) {
+      case 'uploading':
+        return 'upload';
+      case 'processing':
+        return 'video-processing';
+      case 'generating_narrative':
+        return 'nlp-processing';
+      case 'completed':
+        return 'nlp-processing';
+      case 'error':
+        return 'error';
+      default:
+        return 'processing';
+    }
+  };
+
+  const getStepNameFromStatus = (status: string): string => {
+    switch (status) {
+      case 'uploading':
+        return 'Upload';
+      case 'processing':
+        return 'Video Processing';
+      case 'generating_narrative':
+        return 'Narrative Generation';
+      case 'completed':
+        return 'Completed';
+      case 'error':
+        return 'Error';
+      default:
+        return 'Processing';
+    }
+  };
+
+  // Submit edited narrative (placeholder for now)
+  const submitEditedNarrative = async (narrative: string): Promise<{ success: boolean; message: string }> => {
+    // TODO: This could be connected to a future API endpoint for further processing
+    // For now, just simulate success
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return { success: true, message: 'Narrative script processed successfully! Ready for video generation.' };
   };
 
   const jumpToTimestamp = (timeString: string) => {
@@ -400,7 +517,7 @@ As they continue their work, each project becomes a stepping stone toward master
           
           {/* Process Button */}
           <button
-            onClick={simulateProcessing}
+            onClick={processVideosWithAPI}
             disabled={processing || uploadedFiles.some(f => f.status === 'processing')}
             className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-medium transition-colors"
           >
@@ -479,11 +596,44 @@ As they continue their work, each project becomes a stepping stone toward master
       {/* Error Display */}
       {error && (
         <div className="border border-red-500 rounded-lg p-4 bg-red-900/20">
-          <div className="flex items-center gap-2 text-red-400">
+          <div className="flex items-center gap-2 text-red-400 mb-2">
             <AlertCircle className="h-5 w-5" />
-            <span className="font-medium">Error</span>
+            <span className="font-medium">Processing Error</span>
           </div>
-          <p className="text-red-300 mt-1">{error}</p>
+          <div className="text-red-300 mb-2">{error}</div>
+          
+          {/* Additional error context for debugging */}
+          <details className="mt-3">
+            <summary className="text-sm text-red-400 cursor-pointer hover:text-red-300">
+              🔍 Debug Information (Click to expand)
+            </summary>
+            <div className="mt-2 p-3 bg-red-950/30 rounded text-xs font-mono text-red-200 space-y-2">
+              <div><strong>Timestamp:</strong> {new Date().toISOString()}</div>
+              <div><strong>Job ID:</strong> {currentJobId || 'N/A'}</div>
+              <div><strong>Files:</strong> {uploadedFiles.length} files uploaded</div>
+              <div><strong>File Names:</strong> {uploadedFiles.map(f => f.file.name).join(', ')}</div>
+              <div><strong>Processing Steps:</strong> {processingSteps.length} steps completed</div>
+              <div className="pt-2">
+                <strong>Recent Steps:</strong>
+                <ul className="ml-4 mt-1">
+                  {processingSteps.slice(-3).map(step => (
+                    <li key={step.id}>
+                      • {step.name}: {step.message} ({step.status})
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="pt-2 text-yellow-300">
+                <strong>💡 Troubleshooting:</strong>
+                <ul className="ml-4 mt-1 space-y-1">
+                  <li>• Check browser console for detailed API logs</li>
+                  <li>• Verify backend server is running on localhost:8000</li>
+                  <li>• Check backend console for "read of closed file" errors</li>
+                  <li>• Ensure video files are not corrupted or too large</li>
+                </ul>
+              </div>
+            </div>
+          </details>
         </div>
       )}
 
