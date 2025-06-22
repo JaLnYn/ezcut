@@ -129,7 +129,8 @@ class VideoProcessor:
         if n_clusters is None:
             # Use a heuristic: roughly one cluster per minute of video
             video_duration = frames_data[-1]['timestamp'] if frames_data else 60
-            n_clusters = max(5, min(n_frames // 10, int(video_duration / 60) + 5))
+            # Ensure we never have more clusters than frames, and at least 1 cluster
+            n_clusters = min(n_frames, max(1, min(n_frames // 10, int(video_duration / 60) + 5)))
         
         print(f"Clustering {n_frames} frames into {n_clusters} clusters...")
         
