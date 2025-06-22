@@ -53,6 +53,8 @@ const CurrentItem: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [currentJobId, setCurrentJobId] = useState<string | null>(null);
+  const [generateCutsJobId, setGenerateCutsJobId] = useState<string | null>(null);
+  const [generateCutsResult, setGenerateCutsResult] = useState<any>(null);
   
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -373,10 +375,54 @@ As they continue their work, each project becomes a stepping stone toward master
 
   // Submit edited narrative (placeholder for now)
   const submitEditedNarrative = async (narrative: string): Promise<{ success: boolean; message: string }> => {
-    // TODO: This could be connected to a future API endpoint for further processing
-    // For now, just simulate success
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    return { success: true, message: 'Narrative script processed successfully! Ready for video generation.' };
+    try {
+      console.log('🎬 Starting video cuts generation with edited narrative...');
+      console.log('📝 Narrative length:', narrative.length, 'characters');
+      console.log('📁 Using job ID:', currentJobId);
+      
+      // Call the generate-cuts API
+      const response = await api.generateCuts({
+        narrative_text: narrative,
+        duration: 120, // Default 2 minutes
+        interval_duration: 10, // Default 10 second intervals
+        job_id: currentJobId // Use the current job's processed files
+      });
+      
+      console.log('✅ Generate cuts API call successful:', response);
+      setGenerateCutsJobId(response.job_id);
+      
+      // Poll for completion
+      await pollJobStatus(
+        response.job_id,
+        (status) => {
+          console.log('📊 Generate cuts status update:', {
+            status: status.status,
+            progress: status.progress,
+            message: status.message
+          });
+        },
+        (finalStatus) => {
+          console.log('🎉 Generate cuts completed successfully!', finalStatus.result);
+          setGenerateCutsResult(finalStatus.result);
+        },
+        (errorMsg) => {
+          console.error('❌ Generate cuts failed:', errorMsg);
+          throw new Error(errorMsg);
+        }
+      );
+      
+      return { 
+        success: true, 
+        message: 'Video cuts generated successfully! Check the results for the final video.' 
+      };
+      
+    } catch (error: any) {
+      console.error('❌ Error in submitEditedNarrative:', error);
+      return { 
+        success: false, 
+        message: error.message || 'Failed to generate video cuts' 
+      };
+    }
   };
 
   const jumpToTimestamp = (timeString: string) => {
@@ -429,6 +475,9 @@ As they continue their work, each project becomes a stepping stone toward master
     setIsEditing(false);
     setSubmitSuccess(false);
     setProcessingSteps([]);
+    setCurrentJobId(null);
+    setGenerateCutsJobId(null);
+    setGenerateCutsResult(null);
   };
 
   return (
@@ -640,11 +689,24 @@ As they continue their work, each project becomes a stepping stone toward master
       {/* Success Display */}
       {submitSuccess && (
         <div className="border border-green-500 rounded-lg p-4 bg-green-900/20">
-          <div className="flex items-center gap-2 text-green-400">
+          <div className="flex items-center gap-2 text-green-400 mb-2">
             <CheckCircle className="h-5 w-5" />
             <span className="font-medium">Success</span>
           </div>
-          <p className="text-green-300 mt-1">Narrative script submitted successfully!</p>
+          <p className="text-green-300 mb-2">Video cuts generated successfully!</p>
+          
+          {generateCutsResult && (
+            <div className="mt-3 p-3 bg-green-950/30 rounded-lg">
+              <h4 className="text-sm font-medium text-green-300 mb-2">Generated Video Details:</h4>
+              <div className="space-y-1 text-xs text-green-200">
+                <p>📹 Final video: {generateCutsResult.final_video_path}</p>
+                <p>📊 Intervals: {generateCutsResult.intervals_count}</p>
+                <p>⏱️ Duration: {generateCutsResult.total_duration?.toFixed(1)}s</p>
+                <p>💾 File size: {(generateCutsResult.final_video_size / 1024 / 1024).toFixed(1)} MB</p>
+                <p>📁 Output directory: {generateCutsResult.output_directory}</p>
+              </div>
+            </div>
+          )}
         </div>
       )}
 

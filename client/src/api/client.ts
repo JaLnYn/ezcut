@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // API base URL - can be configured via environment variable
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://3.14.146.0:8000';
 
 // Create axios instance with default config
 const apiClient = axios.create({
@@ -88,13 +88,20 @@ apiClient.interceptors.response.use(
 // Types for API responses
 export interface JobStatus {
   job_id: string;
-  status: 'uploading' | 'processing' | 'generating_narrative' | 'completed' | 'error';
+  status: 'uploading' | 'processing' | 'generating_narrative' | 'preparing' | 'generating_intervals' | 'cutting_videos' | 'completed' | 'error';
   progress: number;
   message: string;
   result?: {
-    narrative: string;
-    output_file: string;
-    processed_files: number;
+    narrative?: string;
+    output_file?: string;
+    processed_files?: number;
+    final_video_path?: string;
+    final_video_size?: number;
+    intervals_count?: number;
+    total_duration?: number;
+    output_directory?: string;
+    intervals_file?: string;
+    narrative_file?: string;
   };
   error?: string;
   created_at: string;
@@ -102,6 +109,19 @@ export interface JobStatus {
 }
 
 export interface UploadResponse {
+  job_id: string;
+  message: string;
+  status_endpoint: string;
+}
+
+export interface GenerateCutsRequest {
+  narrative_text: string;
+  duration?: number;
+  interval_duration?: number;
+  job_id?: string;
+}
+
+export interface GenerateCutsResponse {
   job_id: string;
   message: string;
   status_endpoint: string;
@@ -230,6 +250,24 @@ export const api = {
       return response.data;
     } catch (error) {
       throw enhanceError(error, 'Failed to clear all jobs');
+    }
+  },
+
+  // Generate video cuts from narrative text
+  async generateCuts(request: GenerateCutsRequest): Promise<GenerateCutsResponse> {
+    try {
+      console.log(`🎬 Starting video cuts generation with narrative (${request.narrative_text.length} chars)`);
+      console.log(`⏱️ Duration: ${request.duration || 120}s, Interval: ${request.interval_duration || 10}s`);
+      if (request.job_id) {
+        console.log(`📁 Using existing job: ${request.job_id}`);
+      }
+      
+      const response = await apiClient.post('/generate-cuts', request);
+      
+      console.log('🎬 Video cuts generation started, job ID:', response.data.job_id);
+      return response.data;
+    } catch (error) {
+      throw enhanceError(error, 'Failed to start video cuts generation');
     }
   },
 };
