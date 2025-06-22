@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-21T22:23:35.468096",
+    "narrative_file": "nlpv2/nlp_outputs/narrative_20250621_205640.txt",
+    "stream_directory": "stream_processed_clip",
+    "total_target_duration": 120,
+    "suggested_interval_duration": 10,
+    "min_interval_duration": 8,
+    "max_interval_duration": 12,
+    "actual_total_duration": 120.0,
+    "total_intervals": 12,
+    "videos_used": [
+      "part4",
+      "part3",
+      "part2",
+      "part1"
+    ]
+  },
+  "intervals": [
+    {
+      "index": 1,
+      "start_time": "00:00:04",
+      "end_time": "00:00:14",
+      "duration_seconds": 10.0,
+      "ai_description": "Streamer's initial reaction and engagement with the chat",
+      "source_video": "part1"
+    },
+    {
+      "index": 2,
+      "start_time": "00:01:29",
+      "end_time": "00:01:39",
+      "duration_seconds": 10.0,
+      "ai_description": "Streamer's humorous comment about the game",
+      "source_video": "part1"
+    },
+    {
+      "index": 3,
+      "start_time": "00:02:25",
+      "end_time": "00:02:35",
+      "duration_seconds": 10.0,
+      "ai_description": "Streamer's interaction about the game strategy",
+      "source_video": "part1"
+    },
+    {
+      "index": 4,
+      "start_time": "00:04:41",
+      "end_time": "00:04:51",
+      "duration_seconds": 10.0,
+      "ai_description": "Streamer's funny interaction with a regular viewer",
+      "source_video": "part1"
+    },
+    {
+      "index": 5,
+      "start_time": "00:01:50",
+      "end_time": "00:02:00",
+      "duration_seconds": 10.0,
+      "ai_description": "Streamer's reaction to a surprising discovery",
+      "source_video": "part2"
+    },
+    {
+      "index": 6,
+      "start_time": "00:02:09",
+      "end_time": "00:02:19",
+      "duration_seconds": 10.0,
+      "ai_description": "Streamer's humorous self-deprecation",
+      "source_video": "part2"
+    },
+    {
+      "index": 7,
+      "start_time": "00:02:55",
+      "end_time": "00:03:05",
+      "duration_seconds": 10.0,
+      "ai_description": "Streamer's intriguing offer, creates suspense",
+      "source_video": "part2"
+    },
+    {
+      "index": 8,
+      "start_time": "00:00:35",
+      "end_time": "00:00:45",
+      "duration_seconds": 10.0,
+      "ai_description": "Reveals important plot point about a potential large-scale air campaign",
+      "source_video": "part3"
+    },
+    {
+      "index": 9,
+      "start_time": "00:01:08",
+      "end_time": "00:01:18",
+      "duration_seconds": 10.0,
+      "ai_description": "Intense moment where pressure on a key character is revealed",
+      "source_video": "part3"
+    },
+    {
+      "index": 10,
+      "start_time": "00:01:42",
+      "end_time": "00:01:52",
+      "duration_seconds": 10.0,
+      "ai_description": "Major development in the story with a call for uprising",
+      "source_video": "part3"
+    },
+    {
+      "index": 11,
+      "start_time": "00:01:28",
+      "end_time": "00:01:38",
+      "duration_seconds": 10.0,
+      "ai_description": "Streamer's frustration and engagement with the game",
+      "source_video": "part4"
+    },
+    {
+      "index": 12,
+      "start_time": "00:01:45",
+      "end_time": "00:01:55",
+      "duration_seconds": 10.0,
+      "ai_description": "Streamer's commentary on game mechanics",
+      "source_video": "part4"
+    }
+  ]
+}

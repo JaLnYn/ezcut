@@ -71,7 +71,7 @@ def cut_video_segments(json_file_path, source_video_dir="stream_videos", output_
         
         # ffmpeg command to cut the segment
         # Using -ss for start time, -to for end time, -c copy for fast copying without re-encoding
-        command = f'ffmpeg -i "{source_path}" -ss {start_time} -to {end_time} -c copy "{output_path}" -y'
+        command = f'ffmpeg -i "{source_path}" -ss {start_time} -to {end_time} "{output_path}" -y'
         
         if run_ffmpeg_command(command):
             segment_files.append(output_path)

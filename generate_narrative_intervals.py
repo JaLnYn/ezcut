@@ -34,10 +34,13 @@ class TimeInterval:
     source_video: str  # Which part video to cut from
 
 class NarrativeIntervalGenerator:
-    def __init__(self, narrative_file: str, stream_dir: str, total_duration: int = 60):
+    def __init__(self, narrative_file: str, stream_dir: str, total_duration: int = 60, suggested_interval_duration: int = 5):
         self.narrative_file = narrative_file
         self.stream_dir = stream_dir
         self.total_duration = total_duration  # Total target duration for entire video
+        self.suggested_interval_duration = suggested_interval_duration  # Suggested duration for each interval
+        self.min_interval_duration = max(1, suggested_interval_duration - 2)  # Minimum is 2s less than suggested, but at least 1s
+        self.max_interval_duration = suggested_interval_duration + 2  # Maximum is 2s more than suggested
         self.openai_client: openai.OpenAI = self._setup_openai()
         
     def _setup_openai(self) -> openai.OpenAI:
@@ -258,7 +261,7 @@ Content with timestamps and durations:
 
 CONSTRAINTS:
 - Total selected duration must be approximately {video_target_duration:.1f} seconds
-- Each interval should be 1-5 seconds long (no longer than 5s!)
+- Each interval should be {self.min_interval_duration}-{self.suggested_interval_duration} seconds long (no longer than {self.max_interval_duration}s!)
 - Select the most engaging, story-relevant, or emotionally impactful moments
 - Prioritize quality over quantity
 
@@ -295,13 +298,13 @@ Please select the best intervals that fit these constraints. Return ONLY a JSON 
                                     end_seconds = self.parse_timestamp(interval_data['end'])
                                     duration = end_seconds - start_seconds
                                     
-                                    # Enforce max 5s duration
-                                    if duration > 5:
-                                        end_seconds = start_seconds + 5
-                                        duration = 5
+                                    # Enforce max duration
+                                    if duration > self.max_interval_duration:
+                                        end_seconds = start_seconds + self.max_interval_duration
+                                        duration = self.max_interval_duration
                                     
-                                    # Enforce min 3s duration
-                                    if duration < 3:
+                                    # Enforce min duration
+                                    if duration < self.min_interval_duration:
                                         continue
                                     
                                     interval = TimeInterval(
@@ -323,17 +326,18 @@ Please select the best intervals that fit these constraints. Return ONLY a JSON 
             
             # Fallback: select best moments manually
             if video_target_duration > 0:
-                num_intervals = max(1, int(video_target_duration / 15))  # 15s average
+                # Calculate intervals based on suggested duration
+                num_intervals = max(1, int(video_target_duration / self.suggested_interval_duration))
                 if num_intervals > 0:
                     video_duration = video_durations[video]
-                    interval_size = min(10, video_target_duration / num_intervals)  # Max 10s per interval
+                    interval_size = min(self.max_interval_duration, max(self.min_interval_duration, video_target_duration / num_intervals))
                     
                     # Select evenly distributed intervals
                     for i in range(num_intervals):
                         start_time = (video_duration / num_intervals) * i
                         end_time = min(start_time + interval_size, video_duration)
                         
-                        if end_time - start_time >= 3:  # Min 3s
+                        if end_time - start_time >= self.min_interval_duration:
                             interval = TimeInterval(
                                 start_time=self.seconds_to_timestamp(start_time),
                                 end_time=self.seconds_to_timestamp(end_time),
@@ -457,6 +461,9 @@ Generate a concise, engaging description (15-25 words) of what's happening in th
                 "narrative_file": self.narrative_file,
                 "stream_directory": self.stream_dir,
                 "total_target_duration": self.total_duration,
+                "suggested_interval_duration": self.suggested_interval_duration,
+                "min_interval_duration": self.min_interval_duration,
+                "max_interval_duration": self.max_interval_duration,
                 "actual_total_duration": sum(i.duration_seconds for i in intervals),
                 "total_intervals": len(intervals),
                 "videos_used": list(set(i.source_video for i in intervals))
@@ -536,7 +543,9 @@ def main():
     parser.add_argument("--stream-dir", default="stream_processed_clip", 
                        help="Directory containing processed stream files")
     parser.add_argument("--duration", type=int, default=60, 
-                       help="Total target duration for entire video in seconds (default: 60s/5min)")
+                       help="Total target duration for entire video in seconds (default: 60s/1min)")
+    parser.add_argument("--interval-duration", type=int, default=5,
+                       help="Suggested duration for each individual interval in seconds (default: 5s)")
     parser.add_argument("--output", "-o", help="Output JSON file path")
     
     args = parser.parse_args()
@@ -545,7 +554,8 @@ def main():
         generator = NarrativeIntervalGenerator(
             narrative_file=args.narrative_file,
             stream_dir=args.stream_dir,
-            total_duration=args.duration
+            total_duration=args.duration,
+            suggested_interval_duration=args.interval_duration
         )
         
         generator.generate_intervals(args.output)
