@@ -7,6 +7,7 @@ A minimal system that reads processed video content (keyframes + transcripts) an
 1. Install dependencies:
 
 ```bash
+# From the project root directory
 pip install -r requirements.txt
 ```
 
@@ -23,19 +24,19 @@ export OPENAI_API_KEY="your-api-key-here"
 Run the main script (processes all txt files in the outputs folder):
 
 ```bash
-python main.py
+python nlpv2/main.py
 ```
 
 Or use the example script (shows both single file and folder processing):
 
 ```bash
-python example.py
+python nlpv2/example.py
 ```
 
 ### Custom Usage
 
 ```python
-from main import read_file_raw, read_folder_raw, generate_narrative
+from nlpv2.main import read_file_raw, read_folder_raw, generate_narrative
 
 # Process a single file
 content = read_file_raw("path/to/your/file.txt")
@@ -82,5 +83,4 @@ The system generates a short, engaging narrative (2-3 paragraphs) that captures 
 
 - `main.py`: Core functionality
 - `example.py`: Example usage (single file + folder processing)
-- `requirements.txt`: Dependencies
 - `README.md`: This file

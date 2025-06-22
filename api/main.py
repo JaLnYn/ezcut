@@ -210,4 +210,5 @@ async def clear_all_jobs():
 
 if __name__ == "__main__":
     import uvicorn
+    print("Starting API server...")
     uvicorn.run(app, host="0.0.0.0", port=8000) 

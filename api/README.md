@@ -15,7 +15,7 @@ A FastAPI application that processes uploaded videos using AI to extract transcr
 1. **Install dependencies**:
 
 ```bash
-cd api
+# From the project root directory
 pip install -r requirements.txt
 ```
 
@@ -28,7 +28,7 @@ export OPENAI_API_KEY="your-openai-api-key"
 3. **Start the server**:
 
 ```bash
-python main.py
+python api/main.py
 ```
 
 The API will be available at `http://localhost:8000`
@@ -158,7 +158,7 @@ while True:
 ### Using the test script
 
 ```bash
-python test_api.py
+python api/test_api.py
 ```
 
 ## API Documentation
