@@ -1,6 +1,8 @@
 import os
 import openai
 import glob
+import sys
+import argparse
 from datetime import datetime
 
 def read_file_raw(file_path: str) -> str:
@@ -78,14 +80,24 @@ def save_narrative(narrative: str, output_dir: str = "nlp_outputs") -> str:
 
 def main():
     """Main function to process a folder and generate narrative."""
-    # Process the outputs folder
-    folder_path = "../outputs"
+    # Set up argument parser
+    parser = argparse.ArgumentParser(description='Generate narrative from processed video content')
+    parser.add_argument('folder_path', nargs='?', default='../outputs', 
+                       help='Path to folder containing txt files (default: ../outputs)')
+    parser.add_argument('--output-dir', '-o', default='nlp_outputs',
+                       help='Output directory for generated narratives (default: nlp_outputs)')
+    
+    args = parser.parse_args()
+    
+    # Process the specified folder
+    folder_path = args.folder_path
     
     if not os.path.exists(folder_path):
         print(f"Folder not found: {folder_path}")
+        print("Usage: python main.py [folder_path] [--output-dir output_directory]")
         return
     
-    print("Reading all txt files from folder...")
+    print(f"Reading all txt files from folder: {folder_path}")
     content = read_folder_raw(folder_path)
     print(f"Combined content: {len(content)} characters")
     
@@ -104,7 +116,7 @@ def main():
     
     # Save to output file
     if not narrative.startswith("Error"):
-        output_file = save_narrative(narrative)
+        output_file = save_narrative(narrative, args.output_dir)
         print(f"\nNarrative saved to: {output_file}")
     else:
         print("\nNot saving due to error in generation")
