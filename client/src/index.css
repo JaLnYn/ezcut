@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-700;
+  }
+  
+  body {
+    @apply bg-gray-900 text-gray-100;  
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    @apply bg-gray-900;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .card {
+    @apply bg-gray-800 rounded-lg border border-gray-700 shadow-xl;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-700 hover:bg-gray-600 text-gray-100 font-medium py-2.5 px-4 rounded-lg transition-all duration-200 border border-gray-600;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .input {
+    @apply w-full px-3 py-2.5 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-100 placeholder-gray-400;
+  }
+  
+  .textarea {
+    @apply w-full px-3 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-100 placeholder-gray-400 font-mono text-sm leading-relaxed;
+  }
+  
+  .tab-active {
+    @apply bg-blue-600 text-white shadow-lg;
+  }
+  
+  .tab-inactive {
+    @apply bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-gray-100;
+  }
+  
+  .code-block {
+    @apply bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-sm;
+  }
+  
+  .keyframe-item {
+    @apply bg-gray-800 border-l-4 border-l-blue-500 rounded-r-lg p-4 hover:bg-gray-700 transition-colors duration-200;
+  }
+  
+  .transcript-item {
+    @apply bg-gray-800 border-l-4 border-l-green-500 rounded-r-lg p-3 hover:bg-gray-700 transition-colors duration-200;
+  }
+  
+  .timestamp-badge {
+    @apply bg-gray-700 text-gray-200 px-2 py-1 rounded text-xs font-mono cursor-pointer hover:bg-blue-600 hover:text-white transition-colors duration-200;
+  }
+  
+  .progress-bar {
+    @apply w-full bg-gray-700 rounded-full h-2.5 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 ease-out;
+  }
+}
