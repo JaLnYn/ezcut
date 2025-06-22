@@ -1,6 +1,7 @@
 import os
 import openai
 import glob
+from datetime import datetime
 
 def read_file_raw(file_path: str) -> str:
     """Read the entire file as raw text."""
@@ -39,7 +40,7 @@ def generate_narrative(file_content: str, api_key: str = None) -> str:
     if not client.api_key:
         raise ValueError("OpenAI API key not found. Set OPENAI_API_KEY environment variable or pass api_key parameter.")
     
-    prompt = f"""Based on this video content (keyframes and transcripts from multiple files), create a short, engaging summary (2-3 paragraphs) that captures the essence of this stream/vlog content. Make it entertaining and conversational:
+    prompt = f"""Based on this video content (keyframes and transcripts from multiple files), create a short, engaging summary (2-3 paragraphs) that captures the essence of this stream/vlog content. Do not use nouns. Make it entertaining and conversational:
 
 {file_content}
 
@@ -58,6 +59,22 @@ Create a short narrative that flows naturally from this content:"""
         return response.choices[0].message.content
     except Exception as e:
         return f"Error generating narrative: {str(e)}"
+
+def save_narrative(narrative: str, output_dir: str = "nlp_outputs") -> str:
+    """Save the narrative to a file with timestamp."""
+    # Create output directory if it doesn't exist
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Generate filename with timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"narrative_{timestamp}.txt"
+    filepath = os.path.join(output_dir, filename)
+    
+    # Save the narrative
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(narrative)
+    
+    return filepath
 
 def main():
     """Main function to process a folder and generate narrative."""
@@ -84,6 +101,13 @@ def main():
     print("="*50)
     print(narrative)
     print("="*50)
+    
+    # Save to output file
+    if not narrative.startswith("Error"):
+        output_file = save_narrative(narrative)
+        print(f"\nNarrative saved to: {output_file}")
+    else:
+        print("\nNot saving due to error in generation")
 
 if __name__ == "__main__":
     main()
