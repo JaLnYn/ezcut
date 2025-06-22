@@ -1,0 +1,10 @@
+[transcript:00:00:00] I think it's that one over there.
+[keyframe:00:00:01] The video frame depicts an urban street setting with a parked dark-colored hatchback car on a brick-paved road. A person's hand and part of their arm are visible on the right side, suggesting they are walking. The backdrop features a building with colorful signage and banners, contributing a lively yet everyday atmosphere to the scene. (Cluster 4, Size: 3)
+[transcript:00:00:03] Walk, bitch!
+[keyframe:00:00:04] The image features a person walking on a brick-paved sidewalk beside a street, with a black shirt and beige pants. In the background, there is a modern building with colorful glass panels and a parked gray car. The scene captures a casual, urban atmosphere with a relaxed, everyday feel. (Cluster 3, Size: 5)
+[transcript:00:00:08] Whoa!
+[keyframe:00:00:08] The frame captures a person with a backpack facing away, walking along a city street. The setting features a modern urban environment, with a colorful, vertically-striped banner on a building that contains a slogan, and some small, landscaped greenery by the side. The mood is casual and everyday, suggesting a brisk and lively city atmosphere. (Cluster 0, Size: 2)
+[transcript:00:00:10] Oh yeah, that's a better angle.
+[transcript:00:00:13] You walk and beat the way.
+[keyframe:00:00:15] The frame shows a person wearing a black shirt, khaki pants, and a backpack, walking along a concrete sidewalk. They are next to a street with parked cars and a modern building featuring a colorful vertical stripe design visible in the background. The setting is urban, with a casual daytime atmosphere, and there's a sense of motion as the person walks ahead, contributing to a dynamic yet relaxed mood. (Cluster 1, Size: 8)
+[keyframe:00:00:18] The video frame depicts a quiet urban street where a black car is parked beside the sidewalk. The setting includes a mix of modern and older architectural buildings, with a bicycle parked nearby and a few trees providing greenery. The atmosphere is calm, with overcast lighting suggesting a peaceful, perhaps slightly cool day. (Cluster 2, Size: 4)

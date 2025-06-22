@@ -1,0 +1,62 @@
+[transcript:00:00:00] He goes into his face.
+[transcript:00:00:01] That's what he's going to be like.
+[transcript:00:00:02] That's what he's going to be like.
+[transcript:00:00:05] Good?
+[transcript:00:00:06] Okay, go.
+[transcript:00:00:07] We were just sick.
+[transcript:00:00:14] There's gonna be a lot of people going in there.
+[transcript:00:00:15] There's just...
+[transcript:00:00:16] There's no space in the box.
+[keyframe:00:00:16] The video frame shows a group of people in an indoor setting, likely a modern office space or conference area, given the tiled floor and minimalistic design. The main subjects are individuals dressed in formal or business attire, with one person wearing a hat, engaged in conversation or discussion. The atmosphere appears professional and lively, with people mingling or moving around, contributing to a dynamic yet organized mood. (Cluster 1, Size: 17)
+[transcript:00:00:18] Yes, here.
+[transcript:00:00:18] Oh, it's close.
+[transcript:00:00:19] Oh, that's a good one.
+[transcript:00:00:27] I think you're like, how?
+[keyframe:00:00:30] The frame features several individuals standing and interacting in a modern, well-lit indoor setting, likely a professional or networking event, given their formal attire. The primary subject in the foreground is a man with a blue turban and a lanyard, exuding a focused demeanor. The environment includes concrete flooring and minimalistic decor, contributing to a professional and relaxed atmosphere. (Cluster 2, Size: 8)
+[transcript:00:00:36] So we're going to take off now.
+[transcript:00:00:38] Where's the stool?
+[transcript:00:00:40] Sorry.
+[transcript:00:00:41] Fine, I'll do the stool.
+[keyframe:00:00:41] The video frame features a group of people gathered in what appears to be a modern indoor space with large windows. One individual is prominently taking the stage, dressed in formal attire, positioned near a globe placed on a stand, suggesting a presentation or announcement. The atmosphere is professional and anticipatory, with others standing attentively, indicating a sense of focus and interest in the proceedings. (Cluster 3, Size: 23)
+[transcript:00:00:43] Okay, so we're going to take off now.
+[transcript:00:00:46] I'm sure you guys already like see me walking around and running around all frantically.
+[transcript:00:00:49] But if you guys don't already know me, my name's Jonathan.
+[transcript:00:00:52] I want to be your host for today.
+[transcript:00:00:54] And I just want to thank all of you for being here,
+[transcript:00:00:56] because this is our first ever happy eye.
+[keyframe:00:00:57] The video frame shows a person dressed in a dark suit and hat, standing on a small stool or table and gesturing animatedly as if giving a performance or speech. This scene is set in a modern indoor environment with large windows, concrete flooring, and minimalistic décor, including a globe on a pedestal. A few people are present in the background, contributing to a lively and engaging atmosphere. (Cluster 5, Size: 21)
+[transcript:00:00:59] So give yourself a round of applause.
+[transcript:00:01:06] You guys are all a bunch of brilliant engineers.
+[transcript:00:01:09] And I just know that all the projects you work on today could lead something truly amazing.
+[keyframe:00:01:15] The frame features a person elevated on a stool, energetically striking a large gong with a mallet. This takes place in a modern indoor environment with sleek, minimalist decor, including concrete floors and white walls, plus a visible fire exit sign. The atmosphere appears lively and celebratory, suggesting a sense of occasion or announcement. (Cluster 6, Size: 22)
+[transcript:00:01:16] Hey, why are you not going to be that way?
+[transcript:00:01:20] Seriously, you guys, whether this is your first,
+[transcript:00:01:23] or it's your 10th, no matter what,
+[transcript:00:01:25] you're going to be learning and coding and practicing whatever it is that's going to help you shape the next project you're going to do.
+[transcript:00:01:32] So have fun with it, but just know you can be changing people's lives and be patient with it.
+[transcript:00:01:37] Now, just...
+[transcript:00:01:38] I can't do this whole school thing.
+[transcript:00:01:40] I'm like, I want to be looking down at all of you.
+[transcript:00:01:44] If you guys don't already know the two sponsor of the event,
+[transcript:00:01:48] we got Stan and Cortex.
+[transcript:00:01:51] To give you a little refresher, Stan is an all-in-one,
+[transcript:00:01:54] a digital storefront for anyone who wants to make a living program sales.
+[transcript:00:01:57] So think Linktree, but better,
+[keyframe:00:01:58] The frame captures a man in a suit and hat striking a gong with a mallet in a modern, open office space. The setting features large windows, contemporary furniture, and a potted plant, creating a sleek and professional atmosphere. The mood is lively and ceremonial, suggesting a celebratory or significant announcement moment. (Cluster 0, Size: 55)
+[transcript:00:01:59] actually sell digital products.
+[transcript:00:02:02] And then we got Cortex, which is your all-in-one AI-powered knowledge base,
+[transcript:00:02:06] where you can capture, connect, and create all your ideas in one place.
+[transcript:00:02:11] Now, I'm sure you already saw it, and it's probably like a big reason why you guys are all here.
+[transcript:00:02:16] But what's on the line?
+[transcript:00:02:19] It's a money.
+[transcript:00:02:21] It's a big money.
+[transcript:00:02:22] So first place winner is going to get $10,000.
+[transcript:00:02:28] Second place, $5,000.
+[transcript:00:02:31] But not only that, you all are going to get the opportunity to interview at either Stan or Cortex.
+[keyframe:00:02:37] The frame shows a person dressed in a formal dark suit and hat, striking a large gong with a mallet, set in an indoor environment with a modern aesthetic. The setting includes a white wall, fluorescent lighting, and visible stair signage, with some people seated and observing in the background. The atmosphere is dynamic and somewhat formal, suggesting a ceremonial or celebratory event. (Cluster 4, Size: 33)
+[transcript:00:02:38] So yes, money, money, money.
+[transcript:00:02:41] But thank you to the folks who have us like,
+[transcript:00:02:44] an audition for the future.
+[transcript:00:02:46] Now, housekeeping things.
+[transcript:00:02:48] I've been getting a ton of questions like,
+[transcript:00:02:50] where's the washroom, where can I get to drink, what can I get to eat?
