@@ -1,0 +1,5 @@
+[keyframe:00:00:01] The video frame shows a person with a beard and curly hair, wearing a black t-shirt and holding a strap over their shoulder, possibly of a bag. They are indoors, standing in front of a beige wall with a white door in the background and a window that lets in soft, natural light. The atmosphere is relaxed and casual, enhanced by the person's direct gaze at the camera, creating an informal and approachable mood. (Cluster 0, Size: 11)
+[transcript:00:00:02] We're headed off to where we headed off to.
+[transcript:00:00:05] Woohoo!
+[transcript:00:00:06] Let's go!
+[transcript:00:00:07] Woohoo!

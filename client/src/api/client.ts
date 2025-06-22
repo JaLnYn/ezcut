@@ -102,6 +102,9 @@ export interface JobStatus {
     output_directory?: string;
     intervals_file?: string;
     narrative_file?: string;
+    download_url?: string;
+    preview_url?: string;
+    filename?: string;
   };
   error?: string;
   created_at: string;
@@ -269,6 +272,28 @@ export const api = {
     } catch (error) {
       throw enhanceError(error, 'Failed to start video cuts generation');
     }
+  },
+
+  // Download video file
+  async downloadVideo(jobId: string): Promise<Blob> {
+    try {
+      console.log(`📥 Downloading video for job: ${jobId}`);
+      
+      const response = await apiClient.get(`/download/${jobId}`, {
+        responseType: 'blob',
+        timeout: 300000, // 5 minutes for large video files
+      });
+      
+      console.log('📥 Video download successful');
+      return response.data;
+    } catch (error) {
+      throw enhanceError(error, 'Failed to download video');
+    }
+  },
+
+  // Get preview URL
+  getPreviewUrl(jobId: string): string {
+    return `${API_BASE_URL}/preview/${jobId}`;
   },
 };
 

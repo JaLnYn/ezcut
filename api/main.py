@@ -1,5 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks, Form
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import tempfile
@@ -304,6 +304,60 @@ async def clear_all_jobs():
     jobs.clear()
     return {"message": "All jobs cleared successfully"}
 
+@app.get("/download/{job_id}")
+async def download_video(job_id: str):
+    """Download the final video file for a completed job."""
+    if job_id not in jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    job = jobs[job_id]
+    
+    if job.status != "completed":
+        raise HTTPException(status_code=400, detail="Job is not completed")
+    
+    if not job.result or not job.result.get("final_video_path"):
+        raise HTTPException(status_code=404, detail="No video file found in job result")
+    
+    video_path = job.result["final_video_path"]
+    
+    if not os.path.exists(video_path):
+        raise HTTPException(status_code=404, detail="Video file not found on server")
+    
+    # Get the filename for the download
+    filename = os.path.basename(video_path)
+    
+    return FileResponse(
+        path=video_path,
+        filename=filename,
+        media_type="video/mp4",
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
+
+@app.get("/preview/{job_id}")
+async def preview_video(job_id: str):
+    """Preview the final video file for a completed job (streaming)."""
+    if job_id not in jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    job = jobs[job_id]
+    
+    if job.status != "completed":
+        raise HTTPException(status_code=400, detail="Job is not completed")
+    
+    if not job.result or not job.result.get("final_video_path"):
+        raise HTTPException(status_code=404, detail="No video file found in job result")
+    
+    video_path = job.result["final_video_path"]
+    
+    if not os.path.exists(video_path):
+        raise HTTPException(status_code=404, detail="Video file not found on server")
+    
+    return FileResponse(
+        path=video_path,
+        media_type="video/mp4",
+        headers={"Accept-Ranges": "bytes"}
+    )
+
 @app.post("/generate-cuts")
 async def generate_cuts(
     background_tasks: BackgroundTasks,
@@ -454,7 +508,10 @@ async def generate_cuts_background(job_id: str, request: GenerateCutsRequest):
             "total_duration": intervals_data.get('metadata', {}).get('actual_total_duration', 0),
             "output_directory": output_dir,
             "intervals_file": intervals_file,
-            "narrative_file": narrative_file
+            "narrative_file": narrative_file,
+            "download_url": f"/download/{job_id}",
+            "preview_url": f"/preview/{job_id}",
+            "filename": os.path.basename(final_video)
         }
         
         print(f"🎉 Job {job_id} completed successfully!")

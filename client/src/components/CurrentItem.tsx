@@ -55,6 +55,7 @@ const CurrentItem: React.FC = () => {
   const [currentJobId, setCurrentJobId] = useState<string | null>(null);
   const [generateCutsJobId, setGenerateCutsJobId] = useState<string | null>(null);
   const [generateCutsResult, setGenerateCutsResult] = useState<any>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
   
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -450,10 +451,8 @@ As they continue their work, each project becomes a stepping stone toward master
         setSubmitSuccess(true);
         setIsEditing(false);
         
-        // Show success for 3 seconds
-        setTimeout(() => {
-          setSubmitSuccess(false);
-        }, 3000);
+        // Don't auto-hide success message - let user manually dismiss or start new process
+        // The success message will stay visible until clearAll() is called or new process starts
       } else {
         throw new Error(response.message);
       }
@@ -478,6 +477,7 @@ As they continue their work, each project becomes a stepping stone toward master
     setCurrentJobId(null);
     setGenerateCutsJobId(null);
     setGenerateCutsResult(null);
+    setIsDownloading(false);
   };
 
   return (
@@ -698,12 +698,73 @@ As they continue their work, each project becomes a stepping stone toward master
           {generateCutsResult && (
             <div className="mt-3 p-3 bg-green-950/30 rounded-lg">
               <h4 className="text-sm font-medium text-green-300 mb-2">Generated Video Details:</h4>
-              <div className="space-y-1 text-xs text-green-200">
-                <p>📹 Final video: {generateCutsResult.final_video_path}</p>
+              <div className="space-y-1 text-xs text-green-200 mb-3">
+                <p>📹 Final video: {generateCutsResult.filename}</p>
                 <p>📊 Intervals: {generateCutsResult.intervals_count}</p>
                 <p>⏱️ Duration: {generateCutsResult.total_duration?.toFixed(1)}s</p>
                 <p>💾 File size: {(generateCutsResult.final_video_size / 1024 / 1024).toFixed(1)} MB</p>
-                <p>📁 Output directory: {generateCutsResult.output_directory}</p>
+              </div>
+              
+              {/* Video Preview */}
+              <div className="mb-3">
+                <h5 className="text-sm font-medium text-green-300 mb-2">Video Preview:</h5>
+                <video
+                  controls
+                  className="w-full rounded-lg bg-black"
+                  style={{ maxHeight: '300px' }}
+                >
+                  <source src={api.getPreviewUrl(generateCutsJobId!)} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              
+              {/* Download Button */}
+              <div className="flex gap-2">
+                <button
+                  onClick={async () => {
+                    try {
+                      setIsDownloading(true);
+                      const blob = await api.downloadVideo(generateCutsJobId!);
+                      const url = window.URL.createObjectURL(blob);
+                      const a = document.createElement('a');
+                      a.href = url;
+                      a.download = generateCutsResult.filename || 'final_cut_video.mp4';
+                      document.body.appendChild(a);
+                      a.click();
+                      window.URL.revokeObjectURL(url);
+                      document.body.removeChild(a);
+                    } catch (error) {
+                      console.error('Download failed:', error);
+                      setError('Failed to download video');
+                    } finally {
+                      setIsDownloading(false);
+                    }
+                  }}
+                  disabled={isDownloading}
+                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                >
+                  {isDownloading ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Downloading...
+                    </>
+                  ) : (
+                    <>
+                      <Download className="h-4 w-4" />
+                      Download Video
+                    </>
+                  )}
+                </button>
+                
+                <a
+                  href={api.getPreviewUrl(generateCutsJobId!)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                >
+                  <Eye className="h-4 w-4" />
+                  Open in New Tab
+                </a>
               </div>
             </div>
           )}
