@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-21T21:45:49.437921",
+    "narrative_file": "nlpv2/nlp_outputs/narrative_20250621_205640.txt",
+    "stream_directory": "stream_processed_clip",
+    "total_target_duration": 300,
+    "actual_total_duration": 287.0,
+    "total_intervals": 16,
+    "videos_used": [
+      "part3",
+      "part1",
+      "part2",
+      "part4"
+    ]
+  },
+  "intervals": [
+    {
+      "index": 1,
+      "start_time": "00:00:04",
+      "end_time": "00:00:24",
+      "duration_seconds": 20.0,
+      "ai_description": "Streamer engaging with chat and setting the tone of the stream",
+      "source_video": "part1"
+    },
+    {
+      "index": 2,
+      "start_time": "00:01:13",
+      "end_time": "00:01:29",
+      "duration_seconds": 16.0,
+      "ai_description": "Interesting visual and commentary on time",
+      "source_video": "part1"
+    },
+    {
+      "index": 3,
+      "start_time": "00:02:25",
+      "end_time": "00:02:41",
+      "duration_seconds": 16.0,
+      "ai_description": "Streamer's update on game progress and chat interaction",
+      "source_video": "part1"
+    },
+    {
+      "index": 4,
+      "start_time": "00:03:27",
+      "end_time": "00:03:47",
+      "duration_seconds": 20,
+      "ai_description": "Humorous commentary and chat interaction",
+      "source_video": "part1"
+    },
+    {
+      "index": 5,
+      "start_time": "00:04:41",
+      "end_time": "00:05:01",
+      "duration_seconds": 20,
+      "ai_description": "Streamer's recurring joke with chat",
+      "source_video": "part1"
+    },
+    {
+      "index": 6,
+      "start_time": "00:05:35",
+      "end_time": "00:05:52",
+      "duration_seconds": 17.0,
+      "ai_description": "Streamer's self-reflection and chat interaction",
+      "source_video": "part1"
+    },
+    {
+      "index": 7,
+      "start_time": "00:00:35",
+      "end_time": "00:00:55",
+      "duration_seconds": 20,
+      "ai_description": "Interesting dialogue about the game and visual of the desert landscape",
+      "source_video": "part2"
+    },
+    {
+      "index": 8,
+      "start_time": "00:01:50",
+      "end_time": "00:02:09",
+      "duration_seconds": 19.0,
+      "ai_description": "Streamer's reaction to seeing a popular player",
+      "source_video": "part2"
+    },
+    {
+      "index": 9,
+      "start_time": "00:02:09",
+      "end_time": "00:02:25",
+      "duration_seconds": 16.0,
+      "ai_description": "Streamer's humorous self-deprecation about his editors",
+      "source_video": "part2"
+    },
+    {
+      "index": 10,
+      "start_time": "00:02:55",
+      "end_time": "00:03:10",
+      "duration_seconds": 15.0,
+      "ai_description": "Streamer's funny negotiation about his price for a task",
+      "source_video": "part2"
+    },
+    {
+      "index": 11,
+      "start_time": "00:00:00",
+      "end_time": "00:00:20",
+      "duration_seconds": 20.0,
+      "ai_description": "Sets up the context and introduces the key topic",
+      "source_video": "part3"
+    },
+    {
+      "index": 12,
+      "start_time": "00:00:35",
+      "end_time": "00:00:51",
+      "duration_seconds": 16.0,
+      "ai_description": "Important information about military build-up",
+      "source_video": "part3"
+    },
+    {
+      "index": 13,
+      "start_time": "00:01:08",
+      "end_time": "00:01:26",
+      "duration_seconds": 18.0,
+      "ai_description": "Key dialogue about political pressure and decision-making",
+      "source_video": "part3"
+    },
+    {
+      "index": 14,
+      "start_time": "00:01:42",
+      "end_time": "00:02:02",
+      "duration_seconds": 20.0,
+      "ai_description": "Significant development about Iran's exiled Crown Prince",
+      "source_video": "part3"
+    },
+    {
+      "index": 15,
+      "start_time": "00:00:02",
+      "end_time": "00:00:19",
+      "duration_seconds": 17.0,
+      "ai_description": "Streamer's initial reaction and engagement with the game",
+      "source_video": "part4"
+    },
+    {
+      "index": 16,
+      "start_time": "00:01:28",
+      "end_time": "00:01:45",
+      "duration_seconds": 17.0,
+      "ai_description": "Streamer's frustration and commentary about the game",
+      "source_video": "part4"
+    }
+  ]
+}

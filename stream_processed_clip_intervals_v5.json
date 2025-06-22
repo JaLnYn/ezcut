@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-21T22:09:07.451709",
+    "narrative_file": "nlpv2/nlp_outputs/narrative_20250621_205640.txt",
+    "stream_directory": "stream_processed_clip",
+    "total_target_duration": 60,
+    "actual_total_duration": 58.0,
+    "total_intervals": 12,
+    "videos_used": [
+      "part3",
+      "part4",
+      "part1"
+    ]
+  },
+  "intervals": [
+    {
+      "index": 1,
+      "start_time": "00:00:04",
+      "end_time": "00:00:09",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer engaging with chat",
+      "source_video": "part1"
+    },
+    {
+      "index": 2,
+      "start_time": "00:00:39",
+      "end_time": "00:00:44",
+      "duration_seconds": 5.0,
+      "ai_description": "Interesting dialogue",
+      "source_video": "part1"
+    },
+    {
+      "index": 3,
+      "start_time": "00:01:29",
+      "end_time": "00:01:34",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's reaction",
+      "source_video": "part1"
+    },
+    {
+      "index": 4,
+      "start_time": "00:02:41",
+      "end_time": "00:02:46",
+      "duration_seconds": 5.0,
+      "ai_description": "Tense gaming moment",
+      "source_video": "part1"
+    },
+    {
+      "index": 5,
+      "start_time": "00:03:27",
+      "end_time": "00:03:32",
+      "duration_seconds": 5.0,
+      "ai_description": "Interesting dialogue",
+      "source_video": "part1"
+    },
+    {
+      "index": 6,
+      "start_time": "00:04:10",
+      "end_time": "00:04:15",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's decision making",
+      "source_video": "part1"
+    },
+    {
+      "index": 7,
+      "start_time": "00:05:20",
+      "end_time": "00:05:25",
+      "duration_seconds": 5.0,
+      "ai_description": "Emotionally impactful moment",
+      "source_video": "part1"
+    },
+    {
+      "index": 8,
+      "start_time": "00:00:20",
+      "end_time": "00:00:23",
+      "duration_seconds": 3.0,
+      "ai_description": "Intriguing question about South China Sea",
+      "source_video": "part3"
+    },
+    {
+      "index": 9,
+      "start_time": "00:00:51",
+      "end_time": "00:00:56",
+      "duration_seconds": 5.0,
+      "ai_description": "Important information about US involvement",
+      "source_video": "part3"
+    },
+    {
+      "index": 10,
+      "start_time": "00:01:08",
+      "end_time": "00:01:13",
+      "duration_seconds": 5.0,
+      "ai_description": "Key dialogue about Iran's unconditional surrender",
+      "source_video": "part3"
+    },
+    {
+      "index": 11,
+      "start_time": "00:01:42",
+      "end_time": "00:01:47",
+      "duration_seconds": 5.0,
+      "ai_description": "Revelation about Iran's exiled Crown Prince",
+      "source_video": "part3"
+    },
+    {
+      "index": 12,
+      "start_time": "00:01:28",
+      "end_time": "00:01:33",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's frustration and engagement with the game",
+      "source_video": "part4"
+    }
+  ]
+}

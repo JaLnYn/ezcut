@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-21T21:23:14.833824",
+    "narrative_file": "nlpv2/nlp_outputs/narrative_20250621_205640.txt",
+    "stream_directory": "stream_processed_clip",
+    "total_target_duration": 300,
+    "actual_total_duration": 3610.0,
+    "total_intervals": 8
+  },
+  "intervals": [
+    {
+      "index": 1,
+      "start_time": "00:00:00",
+      "end_time": "00:01:30",
+      "duration_seconds": 90.0,
+      "ai_description": "\"Fast-paced Mario Kart race meets witty streamer banter in a lively gaming stream. Laughter and chaos ensue in a colorful world.\""
+    },
+    {
+      "index": 2,
+      "start_time": "00:01:30",
+      "end_time": "00:02:33",
+      "duration_seconds": 63.0,
+      "ai_description": "Fast-paced banter and gameplay chaos in a \"Mario Kart\" stream, with quirky comments and lively chat interactions creating a vibrant atmosphere."
+    },
+    {
+      "index": 3,
+      "start_time": "00:02:33",
+      "end_time": "00:03:34",
+      "duration_seconds": 61.0,
+      "ai_description": "In the fast-paced world of gaming streams, banter and chaos reign as our streamer races through \"Mario Kart\" while engaging with viewers."
+    },
+    {
+      "index": 4,
+      "start_time": "00:03:34",
+      "end_time": "00:04:37",
+      "duration_seconds": 63.0,
+      "ai_description": "\"Streamer races through 'Mario Kart' chaos, bantering with chat. Nostalgic viewer messages pop up as gameplay intensifies.\""
+    },
+    {
+      "index": 5,
+      "start_time": "00:04:37",
+      "end_time": "00:05:09",
+      "duration_seconds": 32.0,
+      "ai_description": "Join the gaming fun as our witty streamer races through \"Mario Kart,\" balancing laughter and frustration in vibrant gameplay chaos."
+    },
+    {
+      "index": 6,
+      "start_time": "00:05:09",
+      "end_time": "00:05:39",
+      "duration_seconds": 30.0,
+      "ai_description": "In a chaotic Mario Kart stream, our witty streamer navigates colorful tracks while bantering with chat. Explosive race action ensues."
+    },
+    {
+      "index": 7,
+      "start_time": "00:05:39",
+      "end_time": "00:06:09",
+      "duration_seconds": 30.0,
+      "ai_description": "Streamer reacts to gameplay, bantering with chat while racing through whimsical Mario Kart tracks. Laughter and fun in full swing."
+    },
+    {
+      "index": 8,
+      "start_time": "00:06:09",
+      "end_time": "01:00:10",
+      "duration_seconds": 3241.0,
+      "ai_description": "Engaging gaming streamer reacts to chaotic chat while racing in \"Mario Kart\" against a whimsical backdrop. Unexpected humor and surprises."
+    }
+  ]
+}

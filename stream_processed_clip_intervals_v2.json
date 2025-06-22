@@ -1,0 +1,202 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-21T21:38:45.878517",
+    "narrative_file": "nlpv2/nlp_outputs/narrative_20250621_205640.txt",
+    "stream_directory": "stream_processed_clip",
+    "total_target_duration": 300,
+    "actual_total_duration": 14417.0,
+    "total_intervals": 23,
+    "videos_used": [
+      "part1",
+      "part2",
+      "part4",
+      "part3"
+    ]
+  },
+  "intervals": [
+    {
+      "index": 1,
+      "start_time": "00:00:04",
+      "end_time": "00:01:54",
+      "duration_seconds": 110.0,
+      "ai_description": "Join the chaotic fun of \"Mario Kart\" as our witty streamer engages with chat while racing through whimsical obstacles. Laugh and race along!",
+      "source_video": "part1"
+    },
+    {
+      "index": 2,
+      "start_time": "00:01:54",
+      "end_time": "00:03:26",
+      "duration_seconds": 92.0,
+      "ai_description": "In the midst of \"Mario Kart\" chaos, our streamer juggles racing and banter with chat. Laughter and frustration fill the air.",
+      "source_video": "part1"
+    },
+    {
+      "index": 3,
+      "start_time": "00:03:26",
+      "end_time": "00:05:05",
+      "duration_seconds": 99.0,
+      "ai_description": "\"Streamer celebrates 'Canada becoming the 52nd state' amidst chat banter, highlighting 44 months as viewers wait at the gate.\"",
+      "source_video": "part1"
+    },
+    {
+      "index": 4,
+      "start_time": "00:05:05",
+      "end_time": "00:06:05",
+      "duration_seconds": 60.0,
+      "ai_description": "In a chaotic Mario Kart stream, our witty streamer faces whimsical obstacles and engages with chat in a vibrant race.",
+      "source_video": "part1"
+    },
+    {
+      "index": 5,
+      "start_time": "00:06:05",
+      "end_time": "00:07:42",
+      "duration_seconds": 97.0,
+      "ai_description": "In the heat of \"Mario Kart\" racing, our streamer Steve engages with a lively chat, sparking laughter and excitement.",
+      "source_video": "part1"
+    },
+    {
+      "index": 6,
+      "start_time": "00:07:42",
+      "end_time": "01:00:04",
+      "duration_seconds": 3142.0,
+      "ai_description": "Tense moment in the gaming stream as the streamer's attention shifts to a serious threat mentioned in the chat.",
+      "source_video": "part1"
+    },
+    {
+      "index": 7,
+      "start_time": "00:00:00",
+      "end_time": "00:01:32",
+      "duration_seconds": 92.0,
+      "ai_description": "In the high-speed world of gaming, laughter and frustration collide as players race through vibrant Mario Kart tracks.",
+      "source_video": "part2"
+    },
+    {
+      "index": 8,
+      "start_time": "00:01:32",
+      "end_time": "00:02:36",
+      "duration_seconds": 64.0,
+      "ai_description": "\"Streamer reacts in disbelief to another player's popularity, sparking chat frenzy during intense 'Mario Kart' race. Hilarious commentary ensues.\"",
+      "source_video": "part2"
+    },
+    {
+      "index": 9,
+      "start_time": "00:02:36",
+      "end_time": "00:03:41",
+      "duration_seconds": 65.0,
+      "ai_description": "In the midst of gaming chaos, our streamer engages in banter with the chat, pondering a weighty question with humor.",
+      "source_video": "part2"
+    },
+    {
+      "index": 10,
+      "start_time": "00:03:41",
+      "end_time": "00:04:18",
+      "duration_seconds": 37.0,
+      "ai_description": "In a chaotic Mario Kart stream, the streamer engages with chat while hilariously mistaking a butcher blade for a meat cleaver.",
+      "source_video": "part2"
+    },
+    {
+      "index": 11,
+      "start_time": "00:04:18",
+      "end_time": "00:04:52",
+      "duration_seconds": 34.0,
+      "ai_description": "Streamer gets confused in chat about locations while racing in \"Mario Kart,\" adding humor and chaos to the gameplay.",
+      "source_video": "part2"
+    },
+    {
+      "index": 12,
+      "start_time": "00:04:52",
+      "end_time": "01:00:08",
+      "duration_seconds": 3316.0,
+      "ai_description": "In this segment, our quick-witted streamer hilariously compares volume controls to gaming challenges while racing through vibrant \"Mario Kart\" tracks.",
+      "source_video": "part2"
+    },
+    {
+      "index": 13,
+      "start_time": "00:00:00",
+      "end_time": "00:00:30",
+      "duration_seconds": 30.0,
+      "ai_description": "Amidst the gaming stream chaos, military updates interrupt the Mario Kart fun as tension rises about global movements and motives.",
+      "source_video": "part3"
+    },
+    {
+      "index": 14,
+      "start_time": "00:00:30",
+      "end_time": "00:01:35",
+      "duration_seconds": 65.0,
+      "ai_description": "Tense military strategy discussion unfolds as plans for a large-scale air campaign are analyzed, revealing potential risks and critical assets.",
+      "source_video": "part3"
+    },
+    {
+      "index": 15,
+      "start_time": "00:01:35",
+      "end_time": "00:02:11",
+      "duration_seconds": 36.0,
+      "ai_description": "\"Unexpected twist in Iran's political landscape as exiled Crown Prince emerges as potential leader, sparking hope for change.\"",
+      "source_video": "part3"
+    },
+    {
+      "index": 16,
+      "start_time": "00:02:11",
+      "end_time": "00:02:42",
+      "duration_seconds": 31.0,
+      "ai_description": "Confusion and curiosity spark as the streamer ponders geopolitics while racing through colorful Mario Kart tracks.",
+      "source_video": "part3"
+    },
+    {
+      "index": 17,
+      "start_time": "00:02:42",
+      "end_time": "01:00:01",
+      "duration_seconds": 3439.0,
+      "ai_description": "\"Intense analysis of airstrikes on Iran's uranium facility Natanz, hinting at potential nuclear repercussions. High stakes and tension.\"",
+      "source_video": "part3"
+    },
+    {
+      "index": 18,
+      "start_time": "00:00:02",
+      "end_time": "00:01:45",
+      "duration_seconds": 103.0,
+      "ai_description": "\"In a chaotic Mario Kart stream, our witty player battles offensive items while engaging with chat. Laughter and frustration ensue.\"",
+      "source_video": "part4"
+    },
+    {
+      "index": 19,
+      "start_time": "00:01:45",
+      "end_time": "00:03:36",
+      "duration_seconds": 111.0,
+      "ai_description": "\"Intense Mario Kart race with hilarious commentary and unexpected moments as the streamer battles through colorful obstacles and engages with chat.\"",
+      "source_video": "part4"
+    },
+    {
+      "index": 20,
+      "start_time": "00:03:36",
+      "end_time": "00:04:06",
+      "duration_seconds": 30.0,
+      "ai_description": "In a whirlwind of \"Mario Kart\" chaos, our streamer questions game mechanics, sparking laughter and banter with viewers.",
+      "source_video": "part4"
+    },
+    {
+      "index": 21,
+      "start_time": "00:04:06",
+      "end_time": "00:05:14",
+      "duration_seconds": 68.0,
+      "ai_description": "Amid the racing chaos of \"Mario Kart,\" our quick-witted streamer interacts with chat, showcasing masterful gameplay and lively banter.",
+      "source_video": "part4"
+    },
+    {
+      "index": 22,
+      "start_time": "00:05:14",
+      "end_time": "00:06:18",
+      "duration_seconds": 64.0,
+      "ai_description": "Join the chaotic fun as our streamer races through \"Mario Kart,\" bantering with chat amidst lush hills and whimsical obstacles.",
+      "source_video": "part4"
+    },
+    {
+      "index": 23,
+      "start_time": "00:06:18",
+      "end_time": "01:00:10",
+      "duration_seconds": 3232.0,
+      "ai_description": "Join the lively gaming stream with quick-witted banter and laughter as players tackle \"Mario Kart\" tracks. Laughter and fun never tire!",
+      "source_video": "part4"
+    }
+  ]
+}

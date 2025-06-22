@@ -1,0 +1,362 @@
+{
+  "metadata": {
+    "generated_at": "2025-06-21T22:07:49.175997",
+    "narrative_file": "nlpv2/nlp_outputs/narrative_20250621_205640.txt",
+    "stream_directory": "stream_processed_clip",
+    "total_target_duration": 300,
+    "actual_total_duration": 204.0,
+    "total_intervals": 43,
+    "videos_used": [
+      "part2",
+      "part1",
+      "part4",
+      "part3"
+    ]
+  },
+  "intervals": [
+    {
+      "index": 1,
+      "start_time": "00:00:04",
+      "end_time": "00:00:09",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer interaction with chat",
+      "source_video": "part1"
+    },
+    {
+      "index": 2,
+      "start_time": "00:00:24",
+      "end_time": "00:00:29",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's strategy reveal",
+      "source_video": "part1"
+    },
+    {
+      "index": 3,
+      "start_time": "00:00:54",
+      "end_time": "00:00:59",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's frustration",
+      "source_video": "part1"
+    },
+    {
+      "index": 4,
+      "start_time": "00:01:29",
+      "end_time": "00:01:34",
+      "duration_seconds": 5.0,
+      "ai_description": "Humorous moment",
+      "source_video": "part1"
+    },
+    {
+      "index": 5,
+      "start_time": "00:02:09",
+      "end_time": "00:02:14",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's personal update",
+      "source_video": "part1"
+    },
+    {
+      "index": 6,
+      "start_time": "00:02:25",
+      "end_time": "00:02:30",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's game plan",
+      "source_video": "part1"
+    },
+    {
+      "index": 7,
+      "start_time": "00:02:56",
+      "end_time": "00:03:01",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's surprise",
+      "source_video": "part1"
+    },
+    {
+      "index": 8,
+      "start_time": "00:03:27",
+      "end_time": "00:03:32",
+      "duration_seconds": 5.0,
+      "ai_description": "Humorous moment",
+      "source_video": "part1"
+    },
+    {
+      "index": 9,
+      "start_time": "00:04:10",
+      "end_time": "00:04:15",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's game plan",
+      "source_video": "part1"
+    },
+    {
+      "index": 10,
+      "start_time": "00:04:41",
+      "end_time": "00:04:46",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer interaction with chat",
+      "source_video": "part1"
+    },
+    {
+      "index": 11,
+      "start_time": "00:05:20",
+      "end_time": "00:05:25",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's determination",
+      "source_video": "part1"
+    },
+    {
+      "index": 12,
+      "start_time": "00:05:52",
+      "end_time": "00:05:57",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's anticipation",
+      "source_video": "part1"
+    },
+    {
+      "index": 13,
+      "start_time": "00:06:10",
+      "end_time": "00:06:15",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's reaction",
+      "source_video": "part1"
+    },
+    {
+      "index": 14,
+      "start_time": "00:01:50",
+      "end_time": "00:01:54",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's reaction",
+      "source_video": "part2"
+    },
+    {
+      "index": 15,
+      "start_time": "00:01:55",
+      "end_time": "00:01:59",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's reaction",
+      "source_video": "part2"
+    },
+    {
+      "index": 16,
+      "start_time": "00:02:09",
+      "end_time": "00:02:13",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's commentary on editors",
+      "source_video": "part2"
+    },
+    {
+      "index": 17,
+      "start_time": "00:02:14",
+      "end_time": "00:02:18",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's commentary on editors",
+      "source_video": "part2"
+    },
+    {
+      "index": 18,
+      "start_time": "00:02:25",
+      "end_time": "00:02:29",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's interaction with audience",
+      "source_video": "part2"
+    },
+    {
+      "index": 19,
+      "start_time": "00:02:30",
+      "end_time": "00:02:34",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's interaction with audience",
+      "source_video": "part2"
+    },
+    {
+      "index": 20,
+      "start_time": "00:02:40",
+      "end_time": "00:02:44",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's opinion on stand up",
+      "source_video": "part2"
+    },
+    {
+      "index": 21,
+      "start_time": "00:02:55",
+      "end_time": "00:02:59",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's negotiation",
+      "source_video": "part2"
+    },
+    {
+      "index": 22,
+      "start_time": "00:03:00",
+      "end_time": "00:03:04",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's negotiation",
+      "source_video": "part2"
+    },
+    {
+      "index": 23,
+      "start_time": "00:03:10",
+      "end_time": "00:03:14",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's self-reflection",
+      "source_video": "part2"
+    },
+    {
+      "index": 24,
+      "start_time": "00:03:15",
+      "end_time": "00:03:19",
+      "duration_seconds": 4.0,
+      "ai_description": "Streamer's self-reflection",
+      "source_video": "part2"
+    },
+    {
+      "index": 25,
+      "start_time": "00:00:00",
+      "end_time": "00:00:05",
+      "duration_seconds": 5.0,
+      "ai_description": "Introduction of the military exercise",
+      "source_video": "part3"
+    },
+    {
+      "index": 26,
+      "start_time": "00:00:20",
+      "end_time": "00:00:25",
+      "duration_seconds": 5.0,
+      "ai_description": "Introduction of the geopolitical situation",
+      "source_video": "part3"
+    },
+    {
+      "index": 27,
+      "start_time": "00:00:35",
+      "end_time": "00:00:40",
+      "duration_seconds": 5.0,
+      "ai_description": "Explanation of the military build-up",
+      "source_video": "part3"
+    },
+    {
+      "index": 28,
+      "start_time": "00:00:51",
+      "end_time": "00:00:56",
+      "duration_seconds": 5.0,
+      "ai_description": "Visual split screen effect",
+      "source_video": "part3"
+    },
+    {
+      "index": 29,
+      "start_time": "00:01:08",
+      "end_time": "00:01:13",
+      "duration_seconds": 5.0,
+      "ai_description": "Introduction of Adonam character",
+      "source_video": "part3"
+    },
+    {
+      "index": 30,
+      "start_time": "00:01:26",
+      "end_time": "00:01:31",
+      "duration_seconds": 5.0,
+      "ai_description": "Visual of man at desk",
+      "source_video": "part3"
+    },
+    {
+      "index": 31,
+      "start_time": "00:01:42",
+      "end_time": "00:01:47",
+      "duration_seconds": 5.0,
+      "ai_description": "Introduction of Reza Palavi",
+      "source_video": "part3"
+    },
+    {
+      "index": 32,
+      "start_time": "00:02:02",
+      "end_time": "00:02:07",
+      "duration_seconds": 5.0,
+      "ai_description": "Introduction of dark horse candidate",
+      "source_video": "part3"
+    },
+    {
+      "index": 33,
+      "start_time": "00:00:02",
+      "end_time": "00:00:07",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's initial reaction and engagement",
+      "source_video": "part4"
+    },
+    {
+      "index": 34,
+      "start_time": "00:00:19",
+      "end_time": "00:00:24",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's strategy discussion",
+      "source_video": "part4"
+    },
+    {
+      "index": 35,
+      "start_time": "00:01:28",
+      "end_time": "00:01:33",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's frustration about game mechanics",
+      "source_video": "part4"
+    },
+    {
+      "index": 36,
+      "start_time": "00:01:45",
+      "end_time": "00:01:50",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's commentary on unfairness",
+      "source_video": "part4"
+    },
+    {
+      "index": 37,
+      "start_time": "00:02:04",
+      "end_time": "00:02:09",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's competitive spirit",
+      "source_video": "part4"
+    },
+    {
+      "index": 38,
+      "start_time": "00:03:03",
+      "end_time": "00:03:08",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's commentary on game difficulty",
+      "source_video": "part4"
+    },
+    {
+      "index": 39,
+      "start_time": "00:03:23",
+      "end_time": "00:03:28",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's reaction to game results",
+      "source_video": "part4"
+    },
+    {
+      "index": 40,
+      "start_time": "00:03:38",
+      "end_time": "00:03:43",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's questioning of game mechanics",
+      "source_video": "part4"
+    },
+    {
+      "index": 41,
+      "start_time": "00:03:55",
+      "end_time": "00:04:00",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's analysis of opponent's strategy",
+      "source_video": "part4"
+    },
+    {
+      "index": 42,
+      "start_time": "00:04:12",
+      "end_time": "00:04:17",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's self-deprecating humor",
+      "source_video": "part4"
+    },
+    {
+      "index": 43,
+      "start_time": "00:04:29",
+      "end_time": "00:04:34",
+      "duration_seconds": 5.0,
+      "ai_description": "Streamer's interaction with chat",
+      "source_video": "part4"
+    }
+  ]
+}
